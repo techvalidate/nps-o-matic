@@ -1,0 +1,12 @@
+{
+  "name": "nps-o-matic",
+  "private": true,
+  "dependencies": {
+    "@rails/webpacker": "^3.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^4.7.1",
+    "eslint-config-standard-preact": "^1.1.6",
+    "webpack-dev-server": "^2.9.5"
+  }
+}

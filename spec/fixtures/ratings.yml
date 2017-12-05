@@ -1,0 +1,32 @@
+zero:
+  score: 0
+
+one:
+  score: 1
+
+two:
+  score: 2
+
+three:
+  score: 3
+
+four:
+  score: 4
+
+five:
+  score: 5
+
+six:
+  score: 6
+
+seven:
+  score: 7
+
+eight:
+  score: 8
+
+nine:
+  score: 9
+
+ten:
+  score: 10
