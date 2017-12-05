@@ -42,6 +42,7 @@ Once complete, create a Pull Request and assign @techvalidate/engineering as a r
 2. Passing test coverage is always appreciated.
 3. For this exercise, do not use a CSS framework such as Bootstrap. We use SASS syntax, but that is optional for this exercise.
 4. We use HAML for markup. Use it if you're familiar with it, but if not, don't sweat it.
+5. Web-ready fonts in several weights of Apple's SF UI Text and SF UI Display are included in public/fonts, and font-face declarations are included in app/assets/stylesheets/_typography.sass
 
 
 ## Above and Beyond
