@@ -40,6 +40,8 @@ Once complete, create a Pull Request and assign @techvalidate/engineering as a r
 
 1. Javascript should be added to app/javascripts via webpack, and not the asset pipeline. We prefer ES6.
 2. Passing test coverage is always appreciated.
+3. For this exercise, do not use a CSS framework such as Bootstrap. We use SASS syntax, but that is optional for this exercise.
+4. We use HAML for markup. Use it if you're familiar with it, but if not, don't sweat it.
 
 
 ## Above and Beyond
