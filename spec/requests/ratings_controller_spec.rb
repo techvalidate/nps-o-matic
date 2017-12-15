@@ -10,7 +10,6 @@ describe RatingsController do
   it 'saves a rating' do
     expect {
       post ratings_url, params: { rating: { score: 10 } }
-      expect(response).to redirect_to(root_url)
     }.to change(Rating, :count).by(1)
   end
 

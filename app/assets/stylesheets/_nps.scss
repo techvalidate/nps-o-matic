@@ -1,0 +1,98 @@
+@import '_variables';
+
+.nps {
+  width: 172px;
+  height: 171px;
+  position: relative;
+  top: 0;
+  left: 0;
+  background: transparent image-url('gauge.png') no-repeat 0 0;
+  background-size: 172px 171px;
+
+  &__score {
+    width: 87px;
+    height: 87px;
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    z-index: -1;
+    background-color: $legend-color-0;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 36px;
+    line-height: 87px;
+    color: #ffffff;
+
+    &:before {
+      content: '';
+      width: 0;
+      height: 0;
+      position: absolute;
+      top: 0;
+      right: -16px;
+      border-top: 15px solid transparent;
+      border-bottom: 15px solid transparent;
+      border-left: 28px solid $legend-color-0;
+      transform: rotate(.91turn);
+    }
+
+    &--1 {
+      background-color: $legend-color-1;
+      &:before {
+        border-left-color: $legend-color-1;
+      }
+    }
+    &--2 {
+      background-color: $legend-color-2;
+      &:before {
+        border-left-color: $legend-color-2;
+      }
+    }
+    &--3 {
+      background-color: $legend-color-3;
+      &:before {
+        border-left-color: $legend-color-3;
+      }
+    }
+    &--4 {
+      background-color: $legend-color-4;
+      &:before {
+        border-left-color: $legend-color-4;
+      }
+    }
+    &--5 {
+      background-color: $legend-color-5;
+      &:before {
+        border-left-color: $legend-color-5;
+      }
+    }
+    &--6 {
+      background-color: $legend-color-6;
+      &:before {
+        border-left-color: $legend-color-6;
+      }
+    }
+    &--7 {
+      background-color: $legend-color-7;
+      &:before {
+        border-left-color: $legend-color-7;
+      }
+    }
+    &--8 {
+      background-color: $legend-color-8;
+      &:before {
+        border-left-color: $legend-color-8;
+      }
+    }
+  }
+
+  &__label {
+    margin-top: 10px;
+    position: absolute;
+    bottom: 8px;
+    left: 67px;
+    text-align: center;
+    font-size: 18px;
+    color: $brand-gray;
+  }
+}

@@ -1,0 +1,21 @@
+@import '_variables';
+
+.terms {
+  &--primary { color: $brand-gray; }
+  &--secondary { color: $legend-color-8; }
+  &--tertiary { color: $legend-color-0; }
+
+  &__count {
+    font-size: 32px;
+
+    &--percent {
+      &:after {
+        content: '%';
+      }
+    }
+  }
+
+  &__label {
+    font-size: 15px;
+  }
+}
