@@ -1,0 +1,21 @@
+@import '_variables';
+@import '_mixins';
+
+.rate-label {
+  font-size: 15px;
+  font-weight: 600;
+
+  &:after {
+    @include clearfix;
+  }
+
+  &__left {
+    float: left;
+    color: $rating-color-10;
+  }
+
+  &__right {
+    float: right;
+    color: $rating-color-10;
+  }
+}

@@ -1,31 +1,73 @@
-%h1 NPS-o-Matic
+%h1.hdg.hdg--1 NPS-o-Matic
 
-%p Rate!
+%ul.vertical-rhythm
+  %li
+    %ul.grid
+      %li
+        %section
+          %h2.hdg.hdg--2 Rate!
+          .box
+            %ul.vertical-rhythm
+              %li
+                %h3.hdg.hdg--3.hdg--bar How likely would you be to recommend Acme Systems to a friend or colleague?
+              %li
+                %ul.hl
+                  - 0.upto(10) do |i|
+                    %li
+                      = form_for Rating.new(score: i), html: { class: 'form form--gradient'} do |f|
+                        = f.hidden_field :score
+                        = f.submit i,
+                          class: "js-rate-btn rate-btn rate-btn--#{i}"
+              %li
+                %ul.rate-label
+                  %li.rate-label__left Very Unlikely
+                  %li.rate-label__right Very Likely
+      %li
+        %section
+          %h2.hdg.hdg--2 Appreciate!
+          .box
+            %ul.grid.grid--6-4
+              %li
+                %ul.terms.terms--primary
+                  %li.js-terms-count.terms__count
+                  %li.terms__label
+                    = 'Rating'.pluralize
 
-%p How likely would you be to recommend Acme Systems to a friend or colleague?
+                .operator-division
 
-- 0.upto(10) do |i|
-  = form_for Rating.new(score: i) do |f|
-    = f.hidden_field :score
-    = f.submit i
+                %ul.grid.grid--four
+                  %li
+                    %ul.terms.terms--secondary
+                      %li.terms__count.terms__count--percent.js-terms-promoter
+                      %li.terms__label Promoters
+                  %li
+                    .operator-minus
+                  %li
+                    %ul.terms.terms--tertiary
+                      %li.terms__count.terms__count--percent.js-terms-detractor
+                      %li.terms__label Detractors
+                  %li
+                    .operator-equal
+              %li
+                .nps
+                  .js-nps-score.nps__score
+                  .nps__label NPS
 
-
-%p Appreciate!
-
-%p= pluralize Rating.count, 'Rating'
-
-
-%p
-  = number_to_percentage Rating.promoters_percentage
-  Promoters
-
-%p
-  = number_to_percentage Rating.detractors_percentage
-  Detractors
-
-%p
-  NPS
-  = Rating.nps
-
-
-%p NPS Color Legend
+  %li
+    %ul.grid
+      %li
+        %section.color-legend
+          %h2.hdg.hdg--2
+            NPS Color Legend
+          .color-legend__bar
+          .color-legend__score
+            %ul.grid.grid--nine
+              %li.color-legend__val.color-legend__val--neg -100
+              %li.color-legend__val.color-legend__val--neg -75
+              %li.color-legend__val.color-legend__val--neg -50
+              %li.color-legend__val.color-legend__val--neg -25
+              %li.color-legend__val 0
+              %li.color-legend__val 25
+              %li.color-legend__val 50
+              %li.color-legend__val 75
+              %li.color-legend__val 100

@@ -1,0 +1,39 @@
+@import '_variables';
+
+.color-legend {
+  width: 624px;
+
+  &__bar {
+    max-width: 570px;
+    height: 16px;
+    margin: 0 auto;
+    background: linear-gradient(to right, $legend-color-0, $legend-color-4, $legend-color-8);
+    border-radius: 12px;
+  }
+
+  &__score {
+    padding-top: 40px;
+  }
+
+  &__val {
+    position: relative;
+    text-align: center;
+    color: #9da5aa;
+
+    &:before {
+      content: '';
+      width: 1px;
+      height: 16px;
+      position: absolute;
+      top: -26px;
+      left: 27px;
+      border-right: 1px solid;
+    }
+
+    &--neg {
+      &:before {
+        left: 30px;
+      }
+    }
+  }
+}

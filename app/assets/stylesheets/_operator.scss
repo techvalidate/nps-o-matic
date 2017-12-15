@@ -1,0 +1,26 @@
+@import '_variables';
+
+.operator-division {
+  margin: 30px 0;
+  border-top: 1px solid $operators;
+}
+
+.operator-minus {
+  width: 16px;
+  margin: -1.5px 0 0 -8px;
+  border-top: 3px solid $operators;
+  position: relative;
+  top: 50%;
+  left: 50%;
+}
+
+.operator-equal {
+  width: 16px;
+  height: 9px;
+  margin: -4.5px 0 0 -8px;
+  border-top: 3px solid $operators;
+  border-bottom: 3px solid $operators;
+  position: relative;
+  top: 50%;
+  left: 50%;
+}

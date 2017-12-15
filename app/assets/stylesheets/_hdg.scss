@@ -1,0 +1,22 @@
+@import '_variables';
+
+.hdg {
+  &--bar {
+    margin-bottom: 50px;
+  }
+
+  &--1 {
+    font-size: 48px;
+    color: $hdg-common;
+  }
+
+  &--2 {
+    font-size: 18px;
+    color: $brand-gray;
+  }
+
+  &--3 {
+    font-size: 20px;
+    color: $hdg-common;
+  }
+}

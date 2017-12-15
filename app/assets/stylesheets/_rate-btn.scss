@@ -1,0 +1,27 @@
+@import '_variables';
+
+.rate-btn {
+  width: 48px;
+  height: 48px;
+  text-align: center;
+  background-color: $rating-color-0;
+  border-radius: 3px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, .20);
+  font-size: 21px;
+  color: #ffffff;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &--1 { background-color: $rating-color-1; }
+  &--2 { background-color: $rating-color-2; }
+  &--3 { background-color: $rating-color-3; }
+  &--4 { background-color: $rating-color-4; }
+  &--5 { background-color: $rating-color-5; }
+  &--6 { background-color: $rating-color-6; }
+  &--7 { background-color: $rating-color-7; }
+  &--8 { background-color: $rating-color-8; }
+  &--9 { background-color: $rating-color-9; }
+  &--10 { background-color: $rating-color-10; }
+}
