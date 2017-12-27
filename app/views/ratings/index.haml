@@ -1,31 +1,67 @@
-%h1 NPS-o-Matic
+.nps
+  %h1 NPS-o-Matic
 
-%p Rate!
+  .rate-appreciate-section
 
-%p How likely would you be to recommend Acme Systems to a friend or colleague?
+    .rate-section
+      %p.section-title Rate!
 
-- 0.upto(10) do |i|
-  = form_for Rating.new(score: i) do |f|
-    = f.hidden_field :score
-    = f.submit i
+      .background-border-wrapper
+        .rating-question How likely would you be to recommend Acme Systems to a friend or colleague?
 
+        %ul.rating-form-section
+          - 0.upto(10) do |i|
+            %li{class: "rating-form-#{i}"}
+              = form_for Rating.new(score: i),
+                html: {class: "rating-form"} do |f|
+                = f.hidden_field :score
+                = f.submit i, :class => "submit-rating"
 
-%p Appreciate!
-
-%p= pluralize Rating.count, 'Rating'
-
-
-%p
-  = number_to_percentage Rating.promoters_percentage
-  Promoters
-
-%p
-  = number_to_percentage Rating.detractors_percentage
-  Detractors
-
-%p
-  NPS
-  = Rating.nps
+        .unlikely-likely-section
+          %p Very Unlikely
+          %p Very Likely
 
 
-%p NPS Color Legend
+    .appreciate-section
+      %p.section-title Appreciate!
+
+      .background-border-wrapper
+
+        .appreciate-item
+
+          .ratings-count
+            .ratings-count-number= Rating.count
+            .ratings-count-text= 'Rating'.pluralize Rating.count
+
+          .promoters-detractors
+            .promoters.promoters-detractors-item
+              .ratings-percentange= number_to_percentage Rating.promoters_percentage, strip_insignificant_zeros: true
+              %span Promoters
+
+            .operator-item.promoters-detractors-item -
+
+            .detractors.promoters-detractors-item
+              .ratings-percentange= number_to_percentage Rating.detractors_percentage, strip_insignificant_zeros: true
+              %span Detractors
+
+            .operator-item.promoters-detractors-item =
+
+        .appreciate-item
+          .nps-dial
+            .dial-figure
+            .dial-figure-score= Rating.nps
+            %span NPS
+
+  .nps-color-legend-section
+    %p NPS Color Legend
+    .nps-gradient
+    %ul.nps-gradient-legend
+      %li -100
+      %li -75
+      %li -50
+      %li -25
+      %li -0
+      %li 25
+      %li 50
+      %li 75
+      %li 100

@@ -1,0 +1,321 @@
+@import "typography";
+// reset scss
+// http://meyerweb.com/eric/tools/css/reset/
+// v2.0 | 20110126
+// License: none (public domain)
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+  }
+
+  // HTML5 display-role reset for older browsers
+  article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+  }
+  body {
+    line-height: 1;
+  }
+  ol, ul {
+    list-style: none;
+  }
+  blockquote, q {
+    quotes: none;
+  }
+  blockquote {
+    &:before, &:after {
+      content: "";
+      content: none;
+    }
+  }
+  q {
+    &:before, &:after {
+      content: "";
+      content: none;
+    }
+  }
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+// General styles
+
+body {
+  background-color: #F7F8FA;
+  font-family: $font-stack;
+}
+
+h1 {
+  color: #333E48;
+  font-family: $heading-font-stack;
+  font-size: 48px;
+}
+
+.nps {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 2em;
+}
+
+// rate / appreciate section
+
+.section-title {
+  color: #6B787F;
+  font-size: 18px;
+}
+
+.rating-question {
+  color: #333E48;
+  font-size: 20px;
+  margin-bottom: 77px;
+}
+
+.rate-appreciate-section {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 60px;
+}
+
+.background-border-wrapper {
+  background-color: #ffffff;
+  box-shadow: 0 1px 4px 0 rgba(0,0,0,0.10);
+  margin-top: 20px;
+  padding: 30px;
+  flex: 1;
+}
+
+.appreciate-section,
+.rate-section {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.rate-section {
+  margin-right: 1em;
+}
+
+.appreciate-section {
+  margin-left: 1em;
+}
+
+.rating-form-section {
+  display: flex;
+  list-style: none;
+  margin: 0 0 15px 0;
+  padding: 0;
+
+  li {
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0 0 3px 0 rgba(0,0,0,0.20);
+    color: #ffffff;
+    cursor: pointer;
+    display: inline-block;
+    flex: 1;
+    height: 40px;
+    line-height: 38px;
+    margin-right: 5px;
+    padding: 0;
+    width: 40px;
+
+    &:last-child {
+      margin: 0;
+    }
+
+    &.rating-form-0 { background-color: #81AED7; }
+    &.rating-form-1 { background-color: #75A7D4; }
+    &.rating-form-2 { background-color: #689ED0; }
+    &.rating-form-3 { background-color: #5C96CB; }
+    &.rating-form-4 { background-color: #4F8EC7; }
+    &.rating-form-5 { background-color: #4387C4; }
+    &.rating-form-6 { background-color: #367EC0; }
+    &.rating-form-7 { background-color: #2976BC; }
+    &.rating-form-8 { background-color: #1D6EB7; }
+    &.rating-form-9 { background-color: #1166B4; }
+    &.rating-form-10 { background-color: #045EB0; }
+  }
+
+  input[type="submit"] {
+    background: none;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    display: block;
+    font-size: 18px;
+    height: 100%;
+    line-height: 39px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+}
+
+.unlikely-likely-section {
+  overflow: hidden;
+
+  p {
+    color: #045EB0;
+    display: inline-block;
+    font-size: 13px;
+    float: left;
+    margin: 0;
+
+    &:last-child { float: right; }
+  }
+}
+
+.appreciate-section {
+  .background-border-wrapper {
+    display: flex;
+
+  }
+}
+
+.appreciate-item { flex: 1;}
+
+.ratings-count {
+  font-size: 32px;
+  color: #6B787F;
+  margin-bottom: 45px;
+// font-size: 15px; // for smaller text
+}
+
+.ratings-count-text { font-size: 15px; }
+
+.promoters-detractors {
+  border-top: 1px solid #D0D2D3;
+  display: flex;
+  padding-top: 45px;
+
+  span {
+    display: block;
+    font-size: 15px;
+  }
+}
+
+.promoters-detractors-item {
+  flex: 1;
+
+  &.promoters { color: #23D385; }
+
+  &.detractors { color: #D22953; }
+}
+
+.ratings-percentange { font-size: 32px; }
+
+.operator-item {
+  color: #999999;
+  font-size: 32px;
+  text-align: center;
+}
+
+.nps-dial {
+  background-image: image-url('dial.png');
+  height: 172px;
+  margin: 0 auto;
+  position: relative;
+  width: 173px;
+
+  span {
+    bottom: 15px;
+    color: #999999;
+    display: block;
+    font-size: 15px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    text-align: center;
+  }
+}
+
+.dial-figure {
+  background-color: #F9BE00;
+  border-radius: 50%;
+  height: 80px;
+  left: 47px;
+  position: absolute;
+  top: 42px;
+  transform: rotate(90deg);
+  width: 80px;
+
+  &:before {
+    border-top: 13px solid transparent;
+    border-right: 26px solid #F9BE00;
+    border-bottom: 13px solid transparent;
+    content:"";
+    height: 0;
+    left: -22px;
+    position: absolute;
+    top: 28px;
+    width: 0;
+  }
+}
+
+.dial-figure-score {
+  bottom: 0;
+  color: white;
+  font-size: 30px;
+  left: 0;
+  line-height: 158px;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 0;
+}
+
+// gradient section
+.nps-color-legend-section {
+  margin-right: 1em;
+  margin-top: 60px;
+  max-width: 49%;
+
+  p {
+    color: #6B787F;
+    font-size: 18px;
+    line-height: 28px;
+  }
+}
+
+.nps-gradient {
+  background-image: linear-gradient(90deg, #D22953 0%, #F9BE00 50%, #23D385 100%);
+  border-radius: 62px;
+  height: 16px;
+  margin: 10px;
+}
+
+.nps-gradient-legend {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 25px;
+
+  li {
+    color: #9DA5AA;
+    display: inline-block;
+    flex: 1;
+    font-size: 15px;
+    letter-spacing: 0.54px;
+    line-height: 24px;
+    margin-right: 7%;
+    position: relative;
+    text-align: center;
+    width: 9.4%;
+
+    &:last-child { margin-right: 0; }
+
+    &:before {
+      border-left: 1px solid #D0D2D3;
+      content:"";
+      height: 15px;
+      left: 50%;
+      position: absolute;
+      top: -20px;
+      transform: translate(-50%);
+      z-index: -1;
+    }
+  }
+}
