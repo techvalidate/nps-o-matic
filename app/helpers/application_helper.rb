@@ -1,11 +1,11 @@
 module ApplicationHelper
   def pluralize_word(count, singular, plural = nil)
-    ((count == 1 || count == '1') ? singular : (plural || singular.pluralize))
+    ([1, '1'].include?(count) ? singular : (plural || singular.pluralize))
   end
 
   def svg(name)
     file_path = "#{Rails.root}/app/assets/images/#{name}.svg"
-    return File.read(file_path).html_safe if File.exists?(file_path)
+    return File.read(file_path).html_safe if File.exist?(file_path)
     '(not found)'
   end
 

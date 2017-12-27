@@ -1,0 +1,27 @@
+.row
+  .col.mrg-0
+    .rating-count.gray
+      %h5.count= number_with_delimiter Rating.count, precision: 3
+      %span.label= pluralize_word(Rating.count, 'Rating')
+    %hr/
+    .row.calcs
+      .pos
+        %h5= number_to_percentage Rating.promoters_percentage, precision: 0
+        %span.label Promoters
+      .math.sub
+        %h5 -
+      .neg
+        %h5= number_to_percentage Rating.detractors_percentage, precision: 0
+        %span.label Detractors
+      .math.equal
+        %h5 =
+  .col.dial
+    .dial-wrapper
+      = svg 'dial'
+      .rating-nps
+        %h5= Rating.nps
+    .ticks
+      - (1..50).each do |i|
+        %div.tick
+    .dial-title
+      %p NPS
