@@ -1,0 +1,154 @@
+@import typography
+@import functions
+
+html
+  font-size: 62.5%
+
+body
+  background: #f7f8fa
+  font-family: $font-stack
+
+#container
+  height: 100%
+  width: 1350px
+
+  .row
+    display: -webkit-box
+    display: -webkit-flex
+    display: -ms-flexbox
+    display: flex
+    -webkit-flex-wrap: wrap
+    -ms-flex-wrap: wrap
+    flex-wrap: wrap
+
+    .col
+      -webkit-flex-basis: 0
+      -ms-flex-preferred-size: 0
+      flex-basis: 0
+      -webkit-box-flex: 1
+      -webkit-flex-grow: 1
+      -ms-flex-positive: 1
+      flex-grow: 1
+      max-width: 100%
+      margin: 0 2rem
+      &.textLeft
+        text-align: left
+        margin-left: 0
+      &.textRight
+        text-align: right
+        margin-right: 0
+
+      .title
+        color: #6b787f
+        font-size: 1.8rem
+
+      .panel
+        background: #fff
+        box-shadow: 0 1px 5px 0 rgba(-7, 0, 0, 0.1), 0 0px 1px 0 rgba(0, 0, 0, 0.11)
+        padding: 3rem 3.5rem 3.8rem
+        width: 55.4rem
+
+        .recommend
+          max-width: 80%
+          font-size: 2rem
+          margin: 0 0 6.1rem 0
+          color: #333E48
+        .scale
+          font-size: 1.3rem
+
+        form
+          display: inline-block
+          width: 4.8rem
+          height: 4.8rem
+          border-radius: 3px
+          margin-right: 2px
+
+          input
+            width: 4.8rem
+            height: 4.8rem
+            border: none
+            background: none
+            color: #fff
+            font-size: 1.8rem
+            &:hover
+              cursor: pointer
+    .ratings
+      margin-right: 0
+    .appreciate
+      margin-left: 0
+      .label
+        font-size: 1.5rem
+        display: block
+      hr
+        display: block
+        height: 1px
+        border: none
+        border-top: 1px solid #D0D2D3
+        padding: 0
+        margin: 4rem 0
+      .pos
+        color: $green
+      .neg
+        color: $red
+      .math
+        color: $light-gray
+        padding: 0 3rem
+        &:nth-child(4)
+          padding: 0 0 0 1.6rem
+      .dial
+        position: relative
+        top: 4rem
+        left: 2rem
+        .dial-wrapper
+          position: absolute
+          top: 5%
+          left: 35%
+          .rating-nps
+            text-align: center
+            font-size: 3.6rem
+            color: #fff
+            position: relative
+            top: -6.5rem
+            left: -0.4rem
+        .ticks
+          transform: (rotate(-150deg))
+          height: 15rem
+          .tick
+            position: absolute
+            width: 100%
+            height: 100%
+            top: 0
+            left: 0
+            z-index: 5
+            overflow: visible
+            &:after
+              content: ""
+              width: .05em
+              height: 1.7em
+              background-color: #aeaeae
+              position: absolute
+              top: -.8rem
+              left: 51%
+        .dial-title
+          text-align: center
+          font-size: 1.5rem
+          color: $light-gray
+          position: relative
+          top: -3rem
+          font-weight: 300
+    .legend
+      margin-top: 6rem
+      svg
+        margin-top: 1rem
+
+// color classes
+.gray
+  color: $gray
+
+.blue
+  color: $base-blue
+
+
+//helpers
+.mrg-0
+  margin: 0 !important

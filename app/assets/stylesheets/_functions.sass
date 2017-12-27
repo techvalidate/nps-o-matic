@@ -1,0 +1,15 @@
+$blue: #81AED7
+$rating-step: 1
+@while $rating-step <=11
+  // darkens color step by step
+  .ratings .new_rating:nth-child(#{$rating-step})
+      // Here we use the SASS darken function and darken our color by 2.2% each time.
+      background-color: darken($blue, ($rating-step * 2.2%))
+  // Increment the step up by 1 so it continues until reaching 10
+  $rating-step: $rating-step + 1
+
+$step: 0
+@while $step <=50
+  .dial .tick:nth-child(#{$step})
+    transform: (rotate($step * 5.8deg))
+  $step: $step + 1
