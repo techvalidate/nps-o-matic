@@ -53,6 +53,8 @@ body
           font-size: 2rem
           margin: 0 0 6.1rem 0
           color: #333E48
+        .scale
+          font-size: 1.3rem
 
         form
           display: inline-block
@@ -72,10 +74,6 @@ body
               cursor: pointer
     .ratings
       margin-right: 0
-      .legend
-        margin-top: 6rem
-        svg
-          margin-top: 1rem
     .appreciate
       margin-left: 0
       .label
@@ -89,11 +87,11 @@ body
         padding: 0
         margin: 4rem 0
       .pos
-        color: #23D385
+        color: $green
       .neg
-        color: #D22953
+        color: $red
       .math
-        color: #999
+        color: $light-gray
         padding: 0 3rem
         &:nth-child(4)
           padding: 0 0 0 1.6rem
@@ -134,29 +132,22 @@ body
         .dial-title
           text-align: center
           font-size: 1.5rem
-          color: #999
+          color: $light-gray
           position: relative
           top: -3rem
           font-weight: 300
+    .legend
+      margin-top: 6rem
+      svg
+        margin-top: 1rem
 
-// typography
-h1
-  font-family: $heading-font-stack
-  font-size: 4.8rem
-
-h5
-  @extend h1
-  font-size: 3.2rem
-  margin: 0
-  font-weight: 200
-
-// colors
+// color classes
 .gray
-  color: #6B787F
+  color: $gray
 
-.scale
-  color: #045EB0
-  font-size: 1.3rem
+.blue
+  color: $base-blue
+
 
 //helpers
 .mrg-0
