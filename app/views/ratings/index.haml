@@ -48,7 +48,7 @@
 
         .appreciate-item
           .nps-dial
-            .dial-figure
+            .dial-figure{class: "nps-score-#{Rating.nps}"}
             .dial-figure-score= Rating.nps
             %span NPS
 
@@ -60,7 +60,7 @@
       %li -75
       %li -50
       %li -25
-      %li -0
+      %li 0
       %li 25
       %li 50
       %li 75

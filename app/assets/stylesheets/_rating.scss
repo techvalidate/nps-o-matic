@@ -42,6 +42,27 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     border-spacing: 0;
   }
 
+// Mixins
+// loop to turn dial
+@mixin move-dial ($style) {
+  @for $i from -100 through 100 {
+    $rotate-deg: 90 + ($i * 1.4);
+    .#{$style}#{$i} {
+      @if ($i < -37) {
+        background-color: #D22953;
+        &:before { border-right-color: #D22953 }
+      } @else if ($i < 37) {
+        background-color: #F9BE00;
+        &:before { border-right-color: #F9BE00 }
+      } @else {
+        background-color: #23D385;
+        &:before { border-right-color: #23D385 }
+      }
+      transform: rotate(#{$rotate-deg}deg);
+    }
+  }
+}
+
 // General styles
 
 body {
@@ -71,7 +92,7 @@ h1 {
 .rating-question {
   color: #333E48;
   font-size: 20px;
-  margin-bottom: 77px;
+  margin-bottom: 67px;
 }
 
 .rate-appreciate-section {
@@ -181,8 +202,7 @@ h1 {
 .ratings-count {
   font-size: 32px;
   color: #6B787F;
-  margin-bottom: 45px;
-// font-size: 15px; // for smaller text
+  margin-bottom: 40px;
 }
 
 .ratings-count-text { font-size: 15px; }
@@ -190,7 +210,7 @@ h1 {
 .promoters-detractors {
   border-top: 1px solid #D0D2D3;
   display: flex;
-  padding-top: 45px;
+  padding-top: 40px;
 
   span {
     display: block;
@@ -214,12 +234,15 @@ h1 {
   text-align: center;
 }
 
+// dial styles
 .nps-dial {
   background-image: image-url('dial.png');
   height: 172px;
   margin: 0 auto;
   position: relative;
   width: 173px;
+
+  @include move-dial('nps-score-');
 
   span {
     bottom: 15px;
@@ -240,7 +263,6 @@ h1 {
   left: 47px;
   position: absolute;
   top: 42px;
-  transform: rotate(90deg);
   width: 80px;
 
   &:before {
