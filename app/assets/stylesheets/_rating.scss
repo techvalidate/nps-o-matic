@@ -1,177 +1,74 @@
-@import "typography";
-// reset scss
-// http://meyerweb.com/eric/tools/css/reset/
-// v2.0 | 20110126
-// License: none (public domain)
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
-  }
-
-  // HTML5 display-role reset for older browsers
-  article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
-    display: block;
-  }
-  body {
-    line-height: 1;
-  }
-  ol, ul {
-    list-style: none;
-  }
-  blockquote, q {
-    quotes: none;
-  }
-  blockquote {
-    &:before, &:after {
-      content: "";
-      content: none;
-    }
-  }
-  q {
-    &:before, &:after {
-      content: "";
-      content: none;
-    }
-  }
-  table {
-    border-collapse: collapse;
-    border-spacing: 0;
-  }
-
-// Mixins
-// loop to turn dial
-@mixin move-dial ($style) {
-  @for $i from -100 through 100 {
-    $rotate-deg: 90 + ($i * 1.4);
-    .#{$style}#{$i} {
-      @if ($i < -37) {
-        background-color: #D22953;
-        &:before { border-right-color: #D22953 }
-      } @else if ($i < 37) {
-        background-color: #F9BE00;
-        &:before { border-right-color: #F9BE00 }
-      } @else {
-        background-color: #23D385;
-        &:before { border-right-color: #23D385 }
-      }
-      transform: rotate(#{$rotate-deg}deg);
-    }
-  }
-}
-
-// General styles
-
-body {
-  background-color: #F7F8FA;
-  font-family: $font-stack;
-}
-
-h1 {
-  color: #333E48;
-  font-family: $heading-font-stack;
-  font-size: 48px;
-}
-
-.nps {
-  margin: 0 auto;
-  max-width: 1200px;
-  padding: 2em;
-}
-
 // rate / appreciate section
-
 .section-title {
-  color: #6B787F;
-  font-size: 18px;
+  color: $text-color;
+  font-size: 0.9em;
 }
 
 .rating-question {
-  color: #333E48;
-  font-size: 20px;
-  margin-bottom: 67px;
+  color: $dark-text-color;
+  font-size: 1em;
+  margin-bottom: 10px;
 }
 
 .rate-appreciate-section {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
-  margin-top: 60px;
 }
 
 .background-border-wrapper {
-  background-color: #ffffff;
+  background-color: $white;
   box-shadow: 0 1px 4px 0 rgba(0,0,0,0.10);
-  margin-top: 20px;
-  padding: 30px;
-  flex: 1;
-}
-
-.appreciate-section,
-.rate-section {
   display: flex;
-  flex-direction: column;
+  margin-top: 1em;
+  padding: 1.5em;
   flex: 1;
 }
 
-.rate-section {
-  margin-right: 1em;
-}
-
-.appreciate-section {
-  margin-left: 1em;
+.column {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  margin: 10px;
 }
 
 .rating-form-section {
   display: flex;
   list-style: none;
-  margin: 0 0 15px 0;
+  margin: 0 0 0.75em 0;
   padding: 0;
 
+  .rating-form { height: 100%; }
+
   li {
-    border: none;
     border-radius: 3px;
     box-shadow: 0 0 3px 0 rgba(0,0,0,0.20);
-    color: #ffffff;
+    color: $white;
     cursor: pointer;
     display: inline-block;
     flex: 1;
-    height: 40px;
-    line-height: 38px;
+    height: 2em;
     margin-right: 5px;
-    padding: 0;
-    width: 40px;
+    max-width: 2em;
+    min-width: 1.25em;
 
     &:last-child {
+      background-color: $likely-text-color;
       margin: 0;
     }
 
-    &.rating-form-0 { background-color: #81AED7; }
-    &.rating-form-1 { background-color: #75A7D4; }
-    &.rating-form-2 { background-color: #689ED0; }
-    &.rating-form-3 { background-color: #5C96CB; }
-    &.rating-form-4 { background-color: #4F8EC7; }
-    &.rating-form-5 { background-color: #4387C4; }
-    &.rating-form-6 { background-color: #367EC0; }
-    &.rating-form-7 { background-color: #2976BC; }
-    &.rating-form-8 { background-color: #1D6EB7; }
-    &.rating-form-9 { background-color: #1166B4; }
-    &.rating-form-10 { background-color: #045EB0; }
+    @include lighten-background($likely-text-color, 11);
   }
 
   input[type="submit"] {
     background: none;
     border: none;
-    color: #ffffff;
+    color: $white;
     cursor: pointer;
-    display: block;
-    font-size: 18px;
+    display: inline-block;
+    font-size: 0.9em;
     height: 100%;
-    line-height: 39px;
-    margin: 0;
-    padding: 0;
+    vertical-align: middle;
     width: 100%;
   }
 }
@@ -180,9 +77,9 @@ h1 {
   overflow: hidden;
 
   p {
-    color: #045EB0;
+    color: $likely-text-color;
     display: inline-block;
-    font-size: 13px;
+    font-size: 0.65em;
     float: left;
     margin: 0;
 
@@ -190,47 +87,39 @@ h1 {
   }
 }
 
-.appreciate-section {
-  .background-border-wrapper {
-    display: flex;
-
-  }
-}
-
 .appreciate-item { flex: 1;}
 
 .ratings-count {
-  font-size: 32px;
-  color: #6B787F;
-  margin-bottom: 40px;
+  font-size: 1.6em;
+  color: $text-color;
 }
 
 .ratings-count-text { font-size: 15px; }
 
+.separator { border-top: 1px solid $border-color; }
+
 .promoters-detractors {
-  border-top: 1px solid #D0D2D3;
   display: flex;
-  padding-top: 40px;
 
   span {
     display: block;
-    font-size: 15px;
+    font-size: 0.75em;
   }
 }
 
 .promoters-detractors-item {
   flex: 1;
 
-  &.promoters { color: #23D385; }
+  &.promoters { color: $promoters-green; }
 
-  &.detractors { color: #D22953; }
+  &.detractors { color: $detractors-red; }
 }
 
-.ratings-percentange { font-size: 32px; }
+.ratings-percentange { font-size: 1.6em; }
 
 .operator-item {
-  color: #999999;
-  font-size: 32px;
+  color: $gray;
+  font-size: 1.6em;
   text-align: center;
 }
 
@@ -244,11 +133,10 @@ h1 {
 
   @include move-dial('nps-score-');
 
-  span {
+  .dial-figure-text {
     bottom: 15px;
-    color: #999999;
-    display: block;
-    font-size: 15px;
+    color: $gray;
+    font-size: 0.75em;
     left: 0;
     position: absolute;
     right: 0;
@@ -257,33 +145,44 @@ h1 {
 }
 
 .dial-figure {
-  background-color: #F9BE00;
-  border-radius: 50%;
+  // background-image: linear-gradient(90deg, $detractors-red 0%, $nps-neutral 50%, $promoters-green 100%);
+  // background-size: 2000px 50px;
+  // background-color: $nps-neutral;
+  // border-radius: 50%;
   height: 80px;
   left: 47px;
   position: absolute;
-  top: 42px;
+  top: 48px;
   width: 80px;
 
-  &:before {
-    border-top: 13px solid transparent;
-    border-right: 26px solid #F9BE00;
-    border-bottom: 13px solid transparent;
+  .dial-circle {
+    background-image: linear-gradient(90deg, $detractors-red 0%, $nps-neutral 50%, $promoters-green 100%);
+    background-size: 2000px 50px;
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+  }
+
+  .dial-arrow {
+    background-image: linear-gradient(90deg, $detractors-red 0%, $nps-neutral 50%, $promoters-green 100%);
+    background-size: 2000px 50px;
     content:"";
-    height: 0;
-    left: -22px;
+    height: 34px;
+    left: -10px;
     position: absolute;
-    top: 28px;
-    width: 0;
+    top: 31px;
+    width: 70px;
+    transform: rotate(25deg) skew(-220deg);
+    z-index: -1;
   }
 }
 
 .dial-figure-score {
   bottom: 0;
-  color: white;
-  font-size: 30px;
+  color: $white;
+  font-size: 1.5em;
   left: 0;
-  line-height: 158px;
+  line-height: 175px;
   position: absolute;
   right: 0;
   text-align: center;
@@ -292,37 +191,40 @@ h1 {
 
 // gradient section
 .nps-color-legend-section {
-  margin-right: 1em;
-  margin-top: 60px;
-  max-width: 49%;
+  .column {
+    margin-right: 1em;
+    max-width: 49%;
+    min-width: 385px;
+  }
 
   p {
-    color: #6B787F;
-    font-size: 18px;
+    color: $text-color;
+    font-size: 0.9em;
     line-height: 28px;
   }
 }
 
 .nps-gradient {
-  background-image: linear-gradient(90deg, #D22953 0%, #F9BE00 50%, #23D385 100%);
+  background-image: linear-gradient(90deg, $detractors-red 0%, $nps-neutral 50%, $promoters-green 100%);
   border-radius: 62px;
   height: 16px;
-  margin: 10px;
+  margin: 0.5em 1em;
 }
 
 .nps-gradient-legend {
   display: flex;
   justify-content: space-between;
+  list-style: none;
   padding-top: 25px;
 
   li {
-    color: #9DA5AA;
+    color: $nps-legend-text-color;
     display: inline-block;
     flex: 1;
-    font-size: 15px;
+    font-size: 0.75em;
     letter-spacing: 0.54px;
-    line-height: 24px;
-    margin-right: 7%;
+    line-height: 1.2em;
+    margin-right: 3%;
     position: relative;
     text-align: center;
     width: 9.4%;
@@ -330,7 +232,7 @@ h1 {
     &:last-child { margin-right: 0; }
 
     &:before {
-      border-left: 1px solid #D0D2D3;
+      border-left: 1px solid $border-color;
       content:"";
       height: 15px;
       left: 50%;

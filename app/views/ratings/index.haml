@@ -1,37 +1,38 @@
-.nps
+.nps.column-space-between
   %h1 NPS-o-Matic
 
   .rate-appreciate-section
 
-    .rate-section
+    .column.rate
       %p.section-title Rate!
 
-      .background-border-wrapper
+      .background-border-wrapper.column-space-between
         .rating-question How likely would you be to recommend Acme Systems to a friend or colleague?
 
-        %ul.rating-form-section
-          - 0.upto(10) do |i|
-            %li{class: "rating-form-#{i}"}
-              = form_for Rating.new(score: i),
-                html: {class: "rating-form"} do |f|
-                = f.hidden_field :score
-                = f.submit i, :class => "submit-rating"
+        .rating-scale
+          %ul.rating-form-section
+            - 0.upto(10) do |i|
+              %li
+                = form_for Rating.new(score: i),
+                  html: {class: "rating-form"} do |f|
+                  = f.hidden_field :score
+                  = f.submit i, :class => "submit-rating"
 
-        .unlikely-likely-section
-          %p Very Unlikely
-          %p Very Likely
+          .unlikely-likely-section
+            %p Very Unlikely
+            %p Very Likely
 
 
-    .appreciate-section
+    .column.appreciate
       %p.section-title Appreciate!
 
       .background-border-wrapper
-
-        .appreciate-item
-
+        .appreciate-item.column-space-between
           .ratings-count
             .ratings-count-number= Rating.count
             .ratings-count-text= 'Rating'.pluralize Rating.count
+
+          .separator
 
           .promoters-detractors
             .promoters.promoters-detractors-item
@@ -49,19 +50,22 @@
         .appreciate-item
           .nps-dial
             .dial-figure{class: "nps-score-#{Rating.nps}"}
+              .dial-arrow
+              .dial-circle
             .dial-figure-score= Rating.nps
-            %span NPS
+            .dial-figure-text NPS
 
   .nps-color-legend-section
-    %p NPS Color Legend
-    .nps-gradient
-    %ul.nps-gradient-legend
-      %li -100
-      %li -75
-      %li -50
-      %li -25
-      %li 0
-      %li 25
-      %li 50
-      %li 75
-      %li 100
+    .column.nps-legend
+      %p NPS Color Legend
+      .nps-gradient
+      %ul.nps-gradient-legend
+        %li -100
+        %li -75
+        %li -50
+        %li -25
+        %li 0
+        %li 25
+        %li 50
+        %li 75
+        %li 100

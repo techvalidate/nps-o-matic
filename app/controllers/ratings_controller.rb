@@ -1,5 +1,5 @@
 class RatingsController < ApplicationController
-  skip_before_action :verify_authenticity_token # to avoid 422 error https://stackoverflow.com/questions/27098239/post-422-unprocessable-entity-in-rails-due-to-the-routes-or-the-controller
+  protect_from_forgery unless: -> { request.format.json? }
 
   def index
   end
