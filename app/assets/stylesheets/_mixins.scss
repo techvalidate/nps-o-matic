@@ -1,0 +1,29 @@
+// Mixins
+// loop & lighten elements
+@mixin lighten-background ($color, $count) {
+  @for $i from 1 through $count {
+    $elem-number: $count - $i;
+    &:nth-of-type(#{$elem-number}) {
+      background-color: mix(white, $color, $i * 5%);
+    }
+  }
+}
+
+@mixin get-dial-background-percentage ($counter) {
+  $bg-postion: (100 + $counter ) / 2;
+  background-position: $bg-postion + unquote('%');
+}
+
+// loop to turn dial via adding specific styles to class names
+@mixin move-dial ($style) {
+  @for $i from -100 through 100 {
+    $rotate-deg: 90 + ($i * 1.35);
+    .#{$style}#{$i} {
+      .dial-arrow,
+      .dial-circle {
+        @include get-dial-background-percentage($i);
+      }
+      transform: rotate(#{$rotate-deg}deg);
+    }
+  }
+}

@@ -1,0 +1,240 @@
+// rate / appreciate section
+.section-title {
+  color: $text-color;
+  font-size: 0.9em;
+}
+
+.rating-question {
+  color: $dark-text-color;
+  font-size: 1em;
+  margin-bottom: 10px;
+}
+
+.rate-appreciate-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.background-border-wrapper {
+  background-color: $white;
+  box-shadow: 0 1px 4px 0 rgba(0,0,0,0.10);
+  display: flex;
+  margin-top: 1em;
+  padding: 1.5em;
+  flex: 1;
+}
+
+.column {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.rating-form-section {
+  display: flex;
+  list-style: none;
+  margin: 0 0 0.75em 0;
+  padding: 0;
+
+  .rating-form { height: 100%; }
+
+  li {
+    border-radius: 3px;
+    box-shadow: 0 0 3px 0 rgba(0,0,0,0.20);
+    color: $white;
+    cursor: pointer;
+    display: inline-block;
+    flex: 1;
+    height: 2em;
+    margin-right: 5px;
+    max-width: 2em;
+    min-width: 1.25em;
+
+    &:last-child {
+      background-color: $likely-text-color;
+      margin: 0;
+    }
+
+    @include lighten-background($likely-text-color, 11);
+  }
+
+  input[type="submit"] {
+    background: none;
+    border: none;
+    color: $white;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 0.9em;
+    height: 100%;
+    vertical-align: middle;
+    width: 100%;
+  }
+}
+
+.unlikely-likely-section {
+  overflow: hidden;
+
+  p {
+    color: $likely-text-color;
+    display: inline-block;
+    font-size: 0.65em;
+    float: left;
+    margin: 0;
+
+    &:last-child { float: right; }
+  }
+}
+
+.appreciate-item { flex: 1;}
+
+.ratings-count {
+  font-size: 1.6em;
+  color: $text-color;
+}
+
+.ratings-count-text { font-size: 15px; }
+
+.separator { border-top: 1px solid $border-color; }
+
+.promoters-detractors {
+  display: flex;
+
+  span {
+    display: block;
+    font-size: 0.75em;
+  }
+}
+
+.promoters-detractors-item {
+  flex: 1;
+
+  &.promoters { color: $promoters-green; }
+  &.detractors { color: $detractors-red; }
+}
+
+.ratings-percentange { font-size: 1.6em; }
+
+.operator-item {
+  color: $gray;
+  font-size: 1.6em;
+  text-align: center;
+}
+
+// dial styles
+.nps-dial {
+  background-image: image-url('dial.png');
+  height: 172px;
+  margin: 0 auto;
+  position: relative;
+  width: 173px;
+
+  @include move-dial('nps-score-');
+
+  .dial-figure-text {
+    bottom: 15px;
+    color: $gray;
+    font-size: 0.75em;
+    left: 0;
+    position: absolute;
+    right: 0;
+    text-align: center;
+  }
+}
+
+.dial-figure {
+  height: 80px;
+  left: 47px;
+  position: absolute;
+  top: 48px;
+  width: 80px;
+
+  .dial-circle {
+    background-image: $nps-background-gradient;
+    background-size: 2000px 50px;
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+  }
+
+  .dial-arrow {
+    background-image: $nps-background-gradient;
+    background-size: 2000px 50px;
+    content:"";
+    height: 34px;
+    left: -10px;
+    position: absolute;
+    top: 31px;
+    width: 70px;
+    transform: rotate(25deg) skew(-220deg);
+    z-index: -1;
+  }
+}
+
+.dial-figure-score {
+  bottom: 0;
+  color: $white;
+  font-size: 1.5em;
+  left: 0;
+  line-height: 175px;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 0;
+}
+
+// gradient section
+.nps-color-legend-section {
+  .column {
+    margin-right: 1em;
+    max-width: 49%;
+    min-width: 385px;
+  }
+
+  p {
+    color: $text-color;
+    font-size: 0.9em;
+    line-height: 28px;
+  }
+}
+
+.nps-gradient {
+  background-image: $nps-background-gradient;
+  border-radius: 62px;
+  height: 16px;
+  margin: 0.5em 1em;
+}
+
+.nps-gradient-legend {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  padding-top: 25px;
+
+  li {
+    color: $nps-legend-text-color;
+    display: inline-block;
+    flex: 1;
+    font-size: 0.75em;
+    letter-spacing: 0.54px;
+    line-height: 1.2em;
+    margin-right: 3%;
+    position: relative;
+    text-align: center;
+    width: 9.4%;
+
+    &:last-child { margin-right: 0; }
+
+    &:before {
+      border-left: 1px solid $border-color;
+      content:"";
+      height: 15px;
+      left: 50%;
+      position: absolute;
+      top: -20px;
+      transform: translate(-50%);
+      z-index: -1;
+    }
+  }
+}
