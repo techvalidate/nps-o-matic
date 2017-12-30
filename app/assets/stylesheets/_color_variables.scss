@@ -9,3 +9,4 @@ $likely-text-color: #045EB0;
 $detractors-red: #D22953;
 $promoters-green: #23D385;
 $nps-neutral: #F9BE00;
+$nps-background-gradient: linear-gradient(90deg, $detractors-red 0%, $nps-neutral 50%, $promoters-green 100%);
