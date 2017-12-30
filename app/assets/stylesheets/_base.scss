@@ -1,0 +1,33 @@
+// Simple CSS reset
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+// General styles
+body {
+  background-color: $body-background-color;
+  font-family: $font-stack;
+  font-size: 20px;
+}
+
+h1 {
+  color: $dark-text-color;
+  font-family: $heading-font-stack;
+  font-size: 2.4em;
+  margin: 10px;
+}
+
+.nps {
+  margin: 0 auto;
+  max-width: 1200px;
+  min-height: 600px;
+  padding: 2em;
+}
+
+.column-space-between {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
