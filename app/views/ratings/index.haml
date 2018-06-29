@@ -1,31 +1,64 @@
-%h1 NPS-o-Matic
+.heading
+  %h1 NPS-o-Matic
 
-%p Rate!
+#stats_container
+  #rate_stats
+    .sub_heading
+      %p Rate!
 
-%p How likely would you be to recommend Acme Systems to a friend or colleague?
+    .stats_card
+      .card_text
+        %p How likely would you be to recommend Acme Systems to a friend or colleague?
 
-- 0.upto(10) do |i|
-  = form_for Rating.new(score: i) do |f|
-    = f.hidden_field :score
-    = f.submit i
+      #rating_buttons
+        - 0.upto(10) do |i|
+          = form_for Rating.new(score: i), remote: true do |f|
+            = f.hidden_field :score
+            = f.submit i
 
+  #appreciate_stats
+    .sub_heading
+      %p Appreciate!
 
-%p Appreciate!
+    .stats_card
+      .total_ratings
+        %p
+          = pluralize Rating.count, 'Rating'
+      #hr_container
+        %hr
+      .percentage_container
+        #promoter_stats
+          .num_percent
+            %p{:id => "promote_percent"}
+              = Rating.promoters_percentage.to_s + '%'
+          .num_descriptor
+            %p Promoters
+        .stat_math_syms
+          %p -
 
-%p= pluralize Rating.count, 'Rating'
+        #detractor_stats
+          .num_percent
+            %p
+              = Rating.detractors_percentage.to_s + '%'
+          .num_descriptor
+            %p Detractors
+        .stat_math_syms
+          %p =
 
+        %p
+          NPS
+          = Rating.nps
 
-%p
-  = number_to_percentage Rating.promoters_percentage
-  Promoters
-
-%p
-  = number_to_percentage Rating.detractors_percentage
-  Detractors
-
-%p
-  NPS
-  = Rating.nps
-
-
-%p NPS Color Legend
+#color_legend_text
+  %p NPS Color Legend
+#color_legend_bar
+#color_legend_nums_container
+  %p -100
+  %p -75
+  %p -50
+  %p -25
+  %p 0
+  %p 25
+  %p 50
+  %p 75
+  %p 100
