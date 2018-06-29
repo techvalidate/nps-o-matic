@@ -13,3 +13,143 @@
  *= require_tree .
  *= require_self
  */
+
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+.heading {
+  font-family: 'SF UI Display';
+  color: #333E48;
+  margin-left: 40px;
+}
+
+p {
+  font-family: 'SF UI Text';
+}
+
+#stats_container {
+  display: flex;
+  margin: 30px;
+}
+
+
+.card_text {
+  width: 70%;
+}
+
+.stats_card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  margin: 0 10px;
+  width: 500px;
+  height: 200px;
+  padding: 20px;
+}
+
+#rating_buttons {
+  background: linear-gradient(to right, #81AED7 , #045EB0);
+  display: inline-block;
+}
+
+input {
+  background: none;
+  border: solid 3px white;
+  border-radius: 5px;
+  color: white;
+  height: 40px;
+  width: 40px;
+}
+
+.new_rating {
+  display: inline-block;
+}
+
+.sub_heading {
+  margin-left: 10px;
+  color: #6B777F;
+}
+
+#promoter_stats {
+  color: #28D381;
+}
+
+.percentage_container {
+  display: flex;
+}
+
+.num_percent {
+  font-size: 36px;
+}
+
+.num_percent p {
+  margin: 10px 0 0 0;
+}
+
+.num_descriptor p {
+  margin: 0;
+}
+
+#detractor_stats {
+  color: #D32D50;
+}
+
+.stat_math_syms {
+  color: #6B777F;
+  font-size: 36px;
+}
+
+.stat_math_syms p {
+  margin: 10px;
+}
+
+.total_ratings {
+  color: #6B777F;
+}
+
+.card_text {
+  color: #333E48;;
+}
+
+#color_legend_text {
+  color: #6B777F;
+  margin-left: 40px;
+}
+
+#color_legend_bar {
+  border: 2px solid white;
+  padding: 8px;
+  border-radius: 25px;
+  width: 450px;
+  margin-left: 40px;
+  background: linear-gradient(to right, #D5404F, #DF5D36, #EA842F, #F1A031, #B8C529, #77CB51, #63D27B);
+}
+
+#color_legend_nums_container {
+  display: flex;
+  margin-left: 25px;
+}
+
+#color_legend_nums_container p {
+  margin-right: 36px;
+  color: #A6AEB2;
+}
+
+#hr_container {
+  width: 50%;
+}
+
+#appreciate_stats {
+  width: 50%;
+}
