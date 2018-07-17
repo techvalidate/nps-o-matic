@@ -48,3 +48,40 @@ Once complete, create a Pull Request and assign @techvalidate/engineering as a r
 ## Above and Beyond
 
 This is your opportunity to show us your idea of quality code. We look forward to a write up of how you approached the problem and decisions you made along the way. There are numerous way to achieve the Javascript portions of this challenge: why did you select a given approach? What are its limitations? What tradeoffs did you make? 
+
+###########################################################################################################################################################################################################################################
+###########################################################################################################################################################################################################################################
+###########################################################################################################################################################################################################################################
+
+I have spent a solid 3 hours on this project (the accuracy of the given mockup to CSS is not much as my style of coding is important along
+with Javascript architecture)
+
+I have:
+1. Styled the page according to the mockups.
+2. Colored the dial with the corresponding color from the legend. It also rotates to indicate the score.
+3. Updated the Appreciate calculations without a full page reload using ajax.
+
+CSS:
+I have Reset CSS.
+I am using 100% of default font size which is 16 px for the whole page.
+Not using SCSS as task complexity is low, hence wrote styles in CSS
+Used flex because of its amazing capabilities. Also I hate floats.
+Used SVG for the dial. I would always prefer SVG over canvas except when developing games or complex charts.
+I always use 'rem' as the unit, as changing at the root level changes the sizing of all elements who use rem in the page. This makes the
+website more responsive.
+Tried to follow BEM methodology.
+
+JS:
+I have just started writing es6, so please bear with the code.
+I have implemented custom methods for "dial color" change and the gradient color change for the "rating buttons"
+I have used vanilla JS for most part of the code.
+I used jQuery for ajax functionality (I could have written this part also using xhttp, but wanted to make code simpler)
+I have used images for certain drawing elements as they are stationary and using SVG for them has a performance hit.
+
+Rails:
+I have made a minor change in "ratings_controller" by rendering partial instead of redirect.
+I have also skipped authenticity token verification which is by default in rails forms.
+
+HAML:
+I have updated haml pages according to the requirements.
+I am new to haml and found it really useful and really easy from a developer's perspective. Good part is I will try to use haml going forward.

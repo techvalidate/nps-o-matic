@@ -13,3 +13,160 @@
  *= require_tree .
  *= require_self
  */
+
+/* Reset CSS*/
+/* inheriting box sizing from box-sizing property(border-box) in body element */
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 100%;
+}
+
+body {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    padding: 3rem;
+    background-color: #F7F8FA;
+}
+
+h1 {
+    padding-bottom: 3.5rem;
+}
+
+.main {
+    display: flex;
+    margin-bottom: 7%;
+}
+
+.left {
+    padding-right: 1rem;
+}
+
+.rating {
+    display: inline-block;
+    background-color: #ffffff;
+    color: #333E48;
+    height: 30vh;
+}
+
+.rating p {
+    padding: 1.6rem;
+}
+
+.rating__numbers {
+    padding: 1.6rem;
+    width: 406px;
+}
+
+.rating .new_rating {
+    display: inline-block;
+    padding-right: 0.2rem;
+}
+
+.rating .new_rating form {
+    margin-right: 0.18rem;
+    box-shadow: 2px 1px lightgrey;
+}
+
+.rating .new_rating button {
+    border: none;
+    padding: 0.68rem;
+    background-color: #045EB0;
+    color: #ffffff;
+    border-radius: 4px;
+}
+
+.meter {
+    display: flex;
+    background-color: #ffffff;
+    color: #333E48;
+    height: 30vh;
+    padding-left: 1.6rem;
+}
+
+.meter__calculations {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding-right: 3.8%;
+}
+
+.meter__calculations--ratings {
+    border-bottom: 1px solid gray;
+    padding-bottom: 16%;
+}
+
+/* Used separate background properties for easy readability*/
+.meter__dial {
+    background-image: url(../meter.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 2.5rem;
+}
+
+.meter__calculations--percentages {
+    display: flex;
+}
+
+.meter__calculations--percentages p:first-of-type{
+    padding-right: 1rem;
+    color: lightgreen;
+}
+
+.meter__calculations--percentages p:last-of-type{
+    padding-left: 1rem;
+}
+
+.meter__calculations--percentages p:nth-last-child(2){
+    padding-left: 1rem;
+    color:darkred;
+}
+
+/* Using px instead of rem for SVG for reusability */
+.svg__dial{
+    height:100px;
+    width:100px;
+    top: 30px;
+    position: relative;
+}
+
+.meter__dial p {
+    text-align: center;
+}
+
+.rating__footer {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 0.68rem;
+    font-size: x-small;
+    color: #045EB0;
+}
+
+/* Using various units like vh, vw based on the element */
+.color_bar {
+    height: 18px;
+    border-radius: 10px;
+    width: 60vh;
+    background: linear-gradient(to right, #D22953, #F9BE00, #23D385);
+    margin-top: 2%;
+}
+
+.meter__dial--text {
+    position: relative;
+    top: -42px;
+}
+
+img {
+    width: 60vh;
+}

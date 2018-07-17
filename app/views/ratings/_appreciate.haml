@@ -1,0 +1,28 @@
+%p
+  Appreciate!
+
+  %div{:class => "meter"}
+    %div{:class => "meter__calculations"}
+      %div{:class => "meter__calculations--ratings"}
+        %p= pluralize Rating.count, 'Rating'
+
+      %div{:class => "meter__calculations--percentages"}
+        %p
+          = number_to_percentage Rating.promoters_percentage
+          Promoters
+
+        %p -
+
+        %p
+          = number_to_percentage Rating.detractors_percentage
+          Detractors
+
+        %p =
+
+    %div{:class => "meter__dial"}
+      %svg{:class => "svg__dial"}
+        %path{:class => "meter__dial--arrow", :d => "M40 20 L50 0 L60 20z"}
+        %circle{:class => "meter__dial--circle", :cx => "50", :cy => "50", :r => "32"}
+
+      %p{:id => "SVGText", :class => "meter__dial--text", :x => "40", :y => "55"}
+        = Rating.nps
