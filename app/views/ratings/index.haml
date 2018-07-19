@@ -1,31 +1,54 @@
 %h1 NPS-o-Matic
+.flex-container
+  .module
+    .module-title__container
+      %p Rate!
+    .module-content__container
+      .question__container
+        %p How likely would you be to recommend Acme Systems to a friend or colleague?
+      .rating__input
+        - 0.upto(10) do |i|
+          = form_with model: Rating.new(score: i), data:{'js-form' => true}, id:i, class: 'new_rating'  do |f|
+            = f.hidden_field :score
+            = f.submit i, {:class => "gradient-#{i}"}
+      .rating__descriptions
+        .low Very Unlikely
+        .high Very Likely
+  .module
+    .module-title__container
+      %p Appreciate!
+    .module-content__container
+      .module-content__container-left
+        .ratings-number= Rating.count
+        .ratings-word
+          - word = "Rating"
+          - if Rating.count > 1
+            = word.pluralize
+          - else
+            = word
+        .separator
+        .math__container
+          .promoters
+            .promoters-count= number_to_percentage(Rating.promoters_percentage, precision: 0)
+            .promoters-word Promoters
+          .minus -
+          .detractors
+            .detractors-count= number_to_percentage(Rating.detractors_percentage, precision: 0)
+            .detractors-word Detractors
+          .equals =
+      .module-content__container-right
+        .nps-rating
+          .nps-spinner__container
+            = inline_svg "gauge.svg", class: 'gauge'
+          .nps-rating-number= Rating.nps
+        .nps-word NPS
+.flex-container
+  .module
+    .module-title__container
+      %p NPS Color Legend
+    .module-content__container.transparent
+      .legend
 
-%p Rate!
-
-%p How likely would you be to recommend Acme Systems to a friend or colleague?
-
-- 0.upto(10) do |i|
-  = form_for Rating.new(score: i) do |f|
-    = f.hidden_field :score
-    = f.submit i
 
 
-%p Appreciate!
 
-%p= pluralize Rating.count, 'Rating'
-
-
-%p
-  = number_to_percentage Rating.promoters_percentage
-  Promoters
-
-%p
-  = number_to_percentage Rating.detractors_percentage
-  Detractors
-
-%p
-  NPS
-  = Rating.nps
-
-
-%p NPS Color Legend

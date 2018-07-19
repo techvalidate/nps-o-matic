@@ -1,15 +1,254 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+@font-face {
+  font-family: "SF UI Display";
+  src: url("/fonts/sf-ui-display-light.woff2") format("woff2"), url("/fonts/sf-ui-display-light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal; }
+@font-face {
+  font-family: "SF UI Display";
+  src: url("/fonts/sf-ui-display-regular.woff2") format("woff2"), url("/fonts/sf-ui-display-regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal; }
+@font-face {
+  font-family: "SF UI Display";
+  src: url("/fonts/sf-ui-display-medium.woff2") format("woff2"), url("/fonts/sf-ui-display-medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal; }
+@font-face {
+  font-family: "SF UI Display";
+  src: url("/fonts/sf-ui-display-semibold.woff2") format("woff2"), url("/fonts/sf-ui-display-semibold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal; }
+@font-face {
+  font-family: "SF UI Text";
+  src: url("/fonts/sf-ui-text-Light.woff2") format("woff2"), url("/fonts/sf-ui-text-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal; }
+@font-face {
+  font-family: "SF UI Text";
+  src: url("/fonts/sf-ui-text-regular.woff2") format("woff2"), url("/fonts/sf-ui-text-regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal; }
+@font-face {
+  font-family: "SF UI Text";
+  src: url("/fonts/sf-ui-text-medium.woff2") format("woff2"), url("/fonts/sf-ui-text-medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal; }
+@font-face {
+  font-family: "SF UI Text";
+  src: url("/fonts/sf-ui-text-semibold.woff2") format("woff2"), url("/fonts/sf-ui-text-semibold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal; }
+.flex-container {
+  display: flex; }
+
+.flex-container .module {
+  flex: 1; }
+
+.flex-grid-thirds {
+  display: flex;
+  justify-content: space-between; }
+
+.flex-grid-thirds .col {
+  width: 32%; }
+
+@media (max-width: 400px) {
+  .flex-grid,
+  .flex-grid-thirds {
+    display: block; }
+    .flex-grid .col,
+    .flex-grid-thirds .col {
+      width: 100%;
+      margin: 0 0 10px 0; } }
+* {
+  box-sizing: border-box; }
+
+body {
+  padding: 20px; }
+
+.flex-grid {
+  margin: 0 0 20px 0; }
+
+.col {
+  background: salmon;
+  padding: 20px; }
+
+body {
+  background: #F7F8FA;
+  max-width: 1400px;
+  margin: 0 auto; }
+
+p {
+  margin: 0; }
+
+h1 {
+  font-family: "SF UI Display", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 0.67;
+  color: #333e48; }
+
+.module {
+  max-width: 624px;
+  margin-right: 32px; }
+
+.module-title__container {
+  font-family: "SF UI Text", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-size: 18px;
+  line-height: 1.56;
+  color: #6b787f; }
+
+.module-content__container {
+  height: 271px;
+  background-color: #ffffff;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1);
+  padding: 23px 32px; }
+
+.question__container {
+  font-family: "SF UI Text", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-size: 20px;
+  line-height: 1.4;
+  padding-right: 48px;
+  color: #333e48; }
+
+.rating__input {
+  display: flex;
+  flex-wrap: nowrap;
+  padding-top: 62px; }
+  .rating__input .new_rating input[type="submit"] {
+    font-family: "SF UI Text", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Droid Sans", "Helvetica Neue", sans-serif;
+    font-weight: 600;
+    color: #ffffff;
+    width: 48px;
+    height: 48px;
+    border-radius: 3px;
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2);
+    margin-right: 3px;
+    font-size: 18px; }
+
+.gradient-0 {
+  background: #81aed7; }
+
+.gradient-1 {
+  background: #75a6d3; }
+
+.gradient-2 {
+  background: #689ecf; }
+
+.gradient-3 {
+  background: #5c96cb; }
+
+.gradient-4 {
+  background: #4f8ec7; }
+
+.gradient-5 {
+  background: #4386c4; }
+
+.gradient-6 {
+  background: #367ec0; }
+
+.gradient-7 {
+  background: #2a76bc; }
+
+.gradient-8 {
+  background: #1d6eb8; }
+
+.gradient-9 {
+  background: #1166b4; }
+
+.gradient-10 {
+  background: #045eb0; }
+
+.transparent {
+  background: transparent;
+  box-shadow: none; }
+
+.rating__descriptions {
+  font-family: "SF UI Text", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  color: #045eb0;
+  padding-top: 12px; }
+  .rating__descriptions .high {
+    float: right; }
+  .rating__descriptions .low {
+    float: left; }
+
+.ratings-number {
+  font-family: "SF UI Text", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-size: 32px;
+  color: #6b787f; }
+
+.ratings-word {
+  font-family: "SF UI Text", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-size: 15px;
+  color: #6b787f; }
+
+.separator {
+  width: 268px;
+  height: 1px;
+  background-color: #d0d2d3;
+  margin-top: 42px;
+  margin-bottom: 37px; }
+
+.legend {
+  background: #d22953;
+  background: -moz-linear-gradient(left, #d22953 0%, #f9be00 50%, #23d385 100%);
+  background: -webkit-linear-gradient(left, #d22953 0%, #f9be00 50%, #23d385 100%);
+  background: linear-gradient(to right, #d22953 0%, #f9be00 50%, #23d385 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$left', endColorstr='$right',GradientType=1 );
+  height: 16px;
+  border-radius: 12px; }
+
+.math__container {
+  display: flex;
+  flex-wrap: nowrap; }
+  .math__container .promoters, .math__container .detractors {
+    width: 75px;
+    color: #23d385;
+    font-family: "SF UI Text", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Droid Sans", "Helvetica Neue", sans-serif; }
+    .math__container .promoters-count, .math__container .detractors-count {
+      font-size: 32px; }
+    .math__container .promoters-word, .math__container .detractors-word {
+      font-size: 15px; }
+  .math__container .detractors {
+    color: #d22953; }
+  .math__container .minus, .math__container .equals {
+    width: 75px;
+    font-size: 32px;
+    color: #999999;
+    text-align: center; }
+
+.module-content__container-left,
+.module-content__container-right {
+  width: 50%;
+  float: left; }
+  .module-content__container-left .nps-rating,
+  .module-content__container-right .nps-rating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 146px;
+    position: relative; }
+    .module-content__container-left .nps-rating .nps-rating-number,
+    .module-content__container-right .nps-rating .nps-rating-number {
+      position: absolute;
+      top: 72px;
+      color: white;
+      font-size: 36px;
+      font-family: "SF UI Text", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Droid Sans", "Helvetica Neue", sans-serif; }
+    .module-content__container-left .nps-rating .nps-spinner__container,
+    .module-content__container-right .nps-rating .nps-spinner__container {
+      position: absolute;
+      margin-top: 25px;
+      text-align: center; }
+  .module-content__container-left .nps-word,
+  .module-content__container-right .nps-word {
+    color: #999;
+    font-size: 15px;
+    font-family: "SF UI Text", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Droid Sans", "Helvetica Neue", sans-serif;
+    width: 100%;
+    text-align: center;
+    padding-top: 9px; }
+
+/*# sourceMappingURL=application.css.map */
