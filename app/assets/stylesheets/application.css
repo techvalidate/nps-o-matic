@@ -44,33 +44,17 @@
 .flex-container .module {
   flex: 1; }
 
-.flex-grid-thirds {
-  display: flex;
-  justify-content: space-between; }
-
-.flex-grid-thirds .col {
-  width: 32%; }
+.flex-container__drop {
+  padding-top: 50px; }
 
 @media (max-width: 400px) {
-  .flex-grid,
-  .flex-grid-thirds {
+  .flex-grid {
     display: block; }
-    .flex-grid .col,
-    .flex-grid-thirds .col {
+    .flex-grid .module {
       width: 100%;
       margin: 0 0 10px 0; } }
-* {
-  box-sizing: border-box; }
-
-body {
-  padding: 20px; }
-
 .flex-grid {
   margin: 0 0 20px 0; }
-
-.col {
-  background: salmon;
-  padding: 20px; }
 
 body {
   background: #F7F8FA;
