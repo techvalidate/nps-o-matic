@@ -1,0 +1,195 @@
+@import 'typography'
+
+// Colors
+$white: #ffffff
+$battleship-gray: #6b787f
+$charcoal-gray: #333e48
+$athens-gray: #F7F8FA
+$warm-gray: #999999
+
+// Defaults
+.flex-container 
+  display: flex
+.flex-container .module 
+  flex: 1
+.flex-container__drop
+  padding-top: 50px
+
+@media (max-width: 400px) 
+  .flex-grid
+    display: block
+    .module
+      width: 100%
+      margin: 0 0 10px 0
+
+.flex-grid 
+  margin: 0 0 20px 0
+
+body 
+  background: $athens-gray
+  max-width: 1400px
+  margin: 0 auto
+
+p 
+  margin: 0
+
+h1 
+  font-family: $heading-font-stack
+  font-size: 48px
+  font-weight: 600
+  line-height: 0.67
+  color: $charcoal-gray
+
+.module 
+  max-width: 624px
+  margin-right: 32px
+
+.module-title__container
+  font-family: $font-stack
+  font-size: 18px
+  line-height: 1.56
+  color: $battleship-gray
+
+.module-content__container
+  height: 271px
+  background-color: $white
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1)
+  padding: 23px 32px  
+
+.question__container
+  font-family: $font-stack
+  font-size: 20px
+  line-height: 1.4
+  padding-right: 48px
+  color: $charcoal-gray
+
+.rating__input
+  display: flex
+  flex-wrap: nowrap
+  padding-top: 62px
+
+  .new_rating 
+    input[type="submit"]
+      font-family: $font-stack
+      font-weight: 600
+      color: $white
+      width: 48px
+      height: 48px
+      border-radius: 3px
+      box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2)
+      margin-right: 3px
+      font-size: 18px
+  
+// Gradient for the Buttons 0-10
+$lowest: #81aed7
+$highest: #045eb0 
+$steps: 11
+
+@for $i from 0 to $steps
+  .gradient-#{$i}
+    background: mix($highest, $lowest, percentage($i / ($steps - 1)))
+
+.transparent
+  background: transparent
+  box-shadow: none
+
+.rating__descriptions
+  font-family: $font-stack
+  font-size: 13px
+  font-weight: 600
+  text-align: center
+  color: $highest
+  padding-top: 12px
+
+  .high 
+    float: right
+  .low
+    float: left
+
+.ratings-number
+  font-family: $font-stack
+  font-size: 32px
+  color: $battleship-gray
+
+.ratings-word
+  font-family: $font-stack
+  font-size: 15px
+  color: $battleship-gray
+
+.separator
+  width: 268px
+  height: 1px
+  background-color: #d0d2d3
+  margin-top: 42px
+  margin-bottom: 37px
+
+// Gradient for Promoters & Detractors  
+=tri-color-gradient($left, $mid, $right )
+  background: $left /* Old browsers */
+  background: -moz-linear-gradient(left, $left 0%, $mid 50%, $right 100%) /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, $left 0%, $mid 50%, $right 100%) /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, $left 0%, $mid 50%, $right 100%) /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$left', endColorstr='$right',GradientType=1 ) /* IE6-9 */
+
+$nps-low: #d22953
+$nps-zero: #f9be00
+$nps-high: #23d385
+
+.legend 
+  +tri-color-gradient($nps-low, $nps-zero, $nps-high)
+  height: 16px
+  border-radius: 12px
+
+.math__container 
+  display: flex
+  flex-wrap: nowrap
+
+  .promoters, .detractors
+    width: 75px
+    color: $nps-high
+    font-family: $font-stack
+    &-count 
+      font-size: 32px
+    &-word 
+      font-size: 15px
+
+  .detractors
+    color: $nps-low
+
+  .minus, .equals
+    width: 75px
+    font-size: 32px
+    color: $warm-gray
+    text-align: center
+  
+.module-content__container-left,
+.module-content__container-right
+  width: 50%
+  float: left
+
+  .nps-rating
+    display: flex
+    align-items: center
+    justify-content: center
+    height: 146px
+    position: relative
+
+    .nps-rating-number
+      position: absolute
+      top: 72px
+      color: white
+      font-size: 36px
+      font-family: $font-stack
+
+    .nps-spinner__container 
+      position: absolute
+      margin-top: 25px
+      text-align: center
+  
+  .nps-word 
+    color: #999
+    font-size: 15px
+    font-family: $font-stack
+    width: 100%
+    text-align: center
+    padding-top: 9px

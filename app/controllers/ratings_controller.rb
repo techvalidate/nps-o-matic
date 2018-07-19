@@ -4,9 +4,10 @@ class RatingsController < ApplicationController
   end
 
   def create
-    @rating = Rating.new params.fetch(:rating, {}).permit(:score)
+    @rating = Rating.new params.fetch(:rating, {promo: Rating.promoters_percentage}).permit(:score)
     @rating.save!
-    redirect_to root_url
+    # Reload out, javascript to the rescue!
+    # redirect_to root_url
   rescue ActiveRecord::RecordInvalid
     flash[:error] = 'Could not save score'
     render :index
