@@ -1,31 +1,50 @@
-%h1 NPS-o-Matic
+%h1.title NPS-o-Matic
 
-%p Rate!
+.rateSection
+  %p.sectionTitle Rate!
 
-%p How likely would you be to recommend Acme Systems to a friend or colleague?
+  .sectionBox
+    .questionText How likely would you be to recommend Acme
+    %div Systems to a friend or colleague?
+    
+    .ratingButtonsContainer
+      - 0.upto(10) do |i|
+        = form_for Rating.new(score: i) do |f|
+          = f.hidden_field :score
+          = f.submit i, :class => "rateButton rateButton#{i}"
+    
+    .likelinessLabels
+      %span.leftLabel Very Unlikely
+      %span.rightLabel Very Likely
 
-- 0.upto(10) do |i|
-  = form_for Rating.new(score: i) do |f|
-    = f.hidden_field :score
-    = f.submit i
+.appreciateSection
+  %p.sectionTitle Appreciate!
+
+  .sectionBox
+
+    .appreciateLeft
+      %p= number_with_delimiter(Rating.count, :delimiter => ",")
+      %p= 'Rating'.pluralize(Rating.count)
+
+      .appericateDivider
+
+      %p.promoters
+        = number_to_percentage(Rating.promoters_percentage, precision: 0)
+        Promoters
+      %p -
+      %p.detractors
+        = number_to_percentage(Rating.detractors_percentage, precision: 0)
+        Detractors
+      %p =
+
+    .appreciateRight
+      %p#npsValue= Rating.nps
+      %canvas#npsDial
 
 
-%p Appreciate!
-
-%p= pluralize Rating.count, 'Rating'
-
-
-%p
-  = number_to_percentage Rating.promoters_percentage
-  Promoters
-
-%p
-  = number_to_percentage Rating.detractors_percentage
-  Detractors
-
-%p
-  NPS
-  = Rating.nps
-
-
-%p NPS Color Legend
+.npsColorLegendSection
+  %p.sectionTitle NPS Color Legend
+  .colorLegend
+  / .colorLegendLabels
+  /   - 0.upto(9) do |i|
+  /     .colorLegendStroke

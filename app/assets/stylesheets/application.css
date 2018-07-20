@@ -13,3 +13,158 @@
  *= require_tree .
  *= require_self
  */
+
+body{
+	background-color: rgb(247, 248, 250);
+	font-family: 'SF UI Text';
+	margin: 72px 80px 72px 80px;
+}
+
+.title {
+	font-family: 'SF UI Display';
+	font-weight: 300;
+}
+
+.sectionTitle {
+	color: rgb(107, 120, 127);
+	font-family: 'SF UI Text';
+	font-weight: 300;
+	width: 624px;
+}
+
+.sectionBox {
+	background-color: white;
+	border: 1px rgb(220, 221, 222);
+	box-shadow: 0px 1px 4px rgb(220, 221, 222);
+	height: 207px;
+	padding: 32px;
+	width: 560px;
+}
+
+/* Rate Section */
+.rateSection {
+	display: inline-block;
+	margin-right: 20px;
+	overflow: scroll;
+	width: 624px;
+}
+
+.questionText {
+	margin-bottom: 5px;
+}
+
+.ratingButtonsContainer {
+	display: flex;
+	margin: 60px 0px 0px 0px;
+}
+
+.ratingButtonsContainer form {
+	border-radius: 3px;
+	display: inline-block;
+	flex: 1;
+	height: 48px;
+	margin-left: 2px;
+	width: 48px;
+}
+
+.new_rating input.rateButton{
+	border-radius: inherit;
+	color: white;
+	font-size: 12px;
+	height: 100%;
+	width: 100%;
+}
+
+/* Rate buttons */
+.rateButton0 {
+	background-color: #81AED7;
+}
+
+.rateButton1 {
+	background-color: #75A7D4;
+}
+
+.rateButton2 {
+	background-color: #689ED0;
+}
+
+.rateButton3 {
+	background-color: #5C96CB;
+}
+
+.rateButton4 {
+	background-color: #4F8EC7;
+}
+
+.rateButton5 {
+	background-color: #4387C4;
+}
+
+.rateButton6 {
+	background-color: #367EC0;
+}
+
+.rateButton7 {
+	background-color: #2976BC;
+}
+
+.rateButton8 {
+	background-color: #106EB7;
+}
+
+
+.rateButton9 {
+	background-color: #1166B4;
+}
+
+.rateButton10 {
+	background-color: #045EB0;
+}
+
+.likelinessLabels {
+	font-size: 12px;
+	color: #045EB0;
+	margin: 10px 2px 0px 2px;
+}
+
+.likelinessLabels .leftLabel {
+	float: left;
+}
+
+.likelinessLabels .rightLabel {
+	float: right;
+}
+
+
+/* Appreciate Section */
+.appreciateSection {
+	display: inline-block;
+	overflow: scroll;
+	width: 624px;
+}
+
+.appreciateLeft {
+	float: left;
+}
+
+.appreciateRight {
+	float: right;
+}
+
+/* NPS Color Legend Section */
+.colorLegend {
+	width: 594px;
+	height: 16px;
+	border-radius: 12px;
+	background: grey; /* For browsers that do not support gradients */
+    background: linear-gradient(to right, rgb(210, 41, 83), rgb(249,190,0) , rgb(35, 211, 133));
+}
+
+.colorLegendStroke {
+	width: 1px;
+	height: 16px;
+	display: inline-block;
+	margin-right: 90px;
+	background-color: grey;
+}
+
