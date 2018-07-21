@@ -57,6 +57,9 @@
 .npsColorLegendSection
   %p.sectionTitle NPS Color Legend
   .colorLegend
-  / .colorLegendLabels
-  /   - 0.upto(9) do |i|
-  /     .colorLegendStroke
+
+  .colorLegendLabels
+    - 0.upto(8) do |i|
+      .colorLegendLabelBlock
+        .colorLegendStroke
+        .colorLegendValue #{-100 + (i * 25)}

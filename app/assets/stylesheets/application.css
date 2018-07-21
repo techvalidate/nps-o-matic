@@ -245,10 +245,10 @@ making them overlap perfectly for easier control on centering */
 }
 
 .npsLabel {
-	position: absolute;
-	left: 0px;
-	right: 0px;
 	bottom: 12px;
+	left: 0px;
+	position: absolute;
+	right: 0px;
 }
 
 /* NPS Color Legend Section */
@@ -257,18 +257,37 @@ making them overlap perfectly for easier control on centering */
 }
 
 .colorLegend {
-	width: 594px;
-	height: 16px;
-	border-radius: 12px;
 	background: grey; /* For browsers that do not support gradients */
     background: linear-gradient(to right, rgb(210, 41, 83), rgb(249,190,0) , rgb(35, 211, 133));
+	border-radius: 12px;
+	height: 16px;
+	width: 594px;
+}
+
+.colorLegendLabels {
+	display: block;
+	font-size: 0px; /* remove auto-spacing between colorLegendLabelBlocks */
+	margin-left: -37px; /* shift left so numbers are centered at start of color legend */
+	width: 666px;
+}
+
+.colorLegendLabelBlock {
+	display: inline-block;
+	width: 74px;
 }
 
 .colorLegendStroke {
-	width: 1px;
-	height: 16px;
+	background-color: #D0D2D3;
 	display: inline-block;
-	margin-right: 90px;
-	background-color: grey;
+	height: 16px;
+	margin: 15px 36px 15px 37px;
+	width: 1px;
+}
+
+.colorLegendValue {
+	color: #D0D2D3;
+	font-size: 12px;
+	text-align: center;
+	margin: auto;
 }
 
