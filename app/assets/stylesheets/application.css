@@ -17,6 +17,7 @@
 body{
 	background-color: rgb(247, 248, 250);
 	font-family: 'SF UI Text';
+	font-weight: 300;
 	margin: 72px 80px 72px 80px;
 }
 
@@ -27,7 +28,6 @@ body{
 
 .sectionTitle {
 	color: rgb(107, 120, 127);
-	font-family: 'SF UI Text';
 	font-weight: 300;
 	width: 624px;
 }
@@ -44,8 +44,9 @@ body{
 /* Rate Section */
 .rateSection {
 	display: inline-block;
-	margin-right: 20px;
+	margin: 0px 0px 40px 0px;
 	overflow: scroll;
+	padding: 5px; /* show box-shadow of sectionBox */
 	width: 624px;
 }
 
@@ -139,7 +140,9 @@ body{
 /* Appreciate Section */
 .appreciateSection {
 	display: inline-block;
+	margin-bottom: 40px;
 	overflow: scroll;
+	padding: 5px; /* show box-shadow of sectionBox */
 	width: 624px;
 }
 
@@ -147,11 +150,65 @@ body{
 	float: left;
 }
 
+.appreciateRatingsCount {
+	color: rgb(107, 120, 127);
+}
+
+.appreciateRatingsCount .ratingCount {
+	font-size: 32px;
+}
+
+.appreciateRatingsCount .ratingCountLabel {
+	font-size: 14px;
+}
+
+.appreciateLeftDivider {
+	background-color: #D0D2D3;
+	height: 1px;
+	margin: 40px 0px 40px 0px;
+	width: 268px;
+}
+
+.equationContainer {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.equation {
+	display: inline-block;
+}
+
+.equation.char {
+	font-size: 32px;
+	color: #999999;
+}
+
+.equation .top {
+	font-size: 32px;
+}
+
+.equation .bottom {
+	font-size: 14px;
+}
+
+.promoters {
+	color: #23D385;
+}
+
+.detractors {
+	color: #D22953;
+}
+
 .appreciateRight {
 	float: right;
 }
 
 /* NPS Color Legend Section */
+.npsColorLegendSection {
+	margin-top: 20px;
+}
+
 .colorLegend {
 	width: 594px;
 	height: 16px;

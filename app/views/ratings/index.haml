@@ -23,19 +23,25 @@
   .sectionBox
 
     .appreciateLeft
-      %p= number_with_delimiter(Rating.count, :delimiter => ",")
-      %p= 'Rating'.pluralize(Rating.count)
 
-      .appericateDivider
+      .appreciateRatingsCount
+        .ratingCount= number_with_delimiter(Rating.count, :delimiter => ",")
+        .ratingCountLabel= 'Rating'.pluralize(Rating.count)
 
-      %p.promoters
-        = number_to_percentage(Rating.promoters_percentage, precision: 0)
-        Promoters
-      %p -
-      %p.detractors
-        = number_to_percentage(Rating.detractors_percentage, precision: 0)
-        Detractors
-      %p =
+      .appreciateLeftDivider
+
+      .equationContainer
+        .promoters.equation
+          .top= number_to_percentage(Rating.promoters_percentage, precision: 0)
+          .bottom Promoters
+        
+        .equation.char -
+
+        .detractors.equation
+          .top= number_to_percentage(Rating.detractors_percentage, precision: 0)
+          .bottom Detractors
+        .equation.char =
+
 
     .appreciateRight
       %p#npsValue= Rating.nps
