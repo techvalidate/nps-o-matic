@@ -147,7 +147,9 @@ body{
 }
 
 .appreciateLeft {
+	display: inline-block;
 	float: left;
+	width: 48%;
 }
 
 .appreciateRatingsCount {
@@ -201,7 +203,52 @@ body{
 }
 
 .appreciateRight {
+	display: inline-block;
 	float: right;
+	position: relative;
+	width: 48%;
+}
+
+/* appreciateRight contents all have the same height, width, left and top positions, 
+making them overlap perfectly for easier control on centering */
+
+.appreciateRight svg {
+	left: 60px;
+	position: absolute;
+	top: 20px;
+	z-index: 1; /* show below npsValue */
+}
+
+#npsValue {
+	color: white;
+	font-size: 32px;
+	height: 172px;
+	left: 60px;
+	line-height: 172px; /* vertically center */
+	position: absolute;
+	text-align: center;
+	top: 20px;
+	width: 173px;
+	z-index: 2; /* show above gauge */
+}
+
+.npsLabelContainer {
+	color: #999999;
+	font-size: 14px;
+	height: 172px;
+	left: 60px;
+	position: absolute;
+	text-align: center;
+	top: 20px;
+	width: 173px;
+	z-index: 2; /* show above gauge */
+}
+
+.npsLabel {
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	bottom: 12px;
 }
 
 /* NPS Color Legend Section */
