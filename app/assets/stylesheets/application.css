@@ -260,6 +260,7 @@ making them overlap perfectly for easier control on centering */
 	background: grey; /* For browsers that do not support gradients */
     background: linear-gradient(to right, rgb(210, 41, 83), rgb(249,190,0) , rgb(35, 211, 133));
 	border-radius: 12px;
+	margin-left: 16px;
 	height: 16px;
 	width: 594px;
 }
@@ -267,7 +268,7 @@ making them overlap perfectly for easier control on centering */
 .colorLegendLabels {
 	display: block;
 	font-size: 0px; /* remove auto-spacing between colorLegendLabelBlocks */
-	margin-left: -37px; /* shift left so numbers are centered at start of color legend */
+	margin-left: -21px; /* shift left so numbers are centered at start of color legend */
 	width: 666px;
 }
 
