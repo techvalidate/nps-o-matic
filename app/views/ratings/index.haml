@@ -45,7 +45,7 @@
 
     .appreciateRight
       / syntax: https://stackoverflow.com/questions/24353788/how-to-do-data-attributes-with-haml-and-rails
-      %div#npsValue{:data => {:nps => Rating.nps}} #{Rating.nps}
+      %div#npsValue{:data => {:nps => Rating.nps}}
 
       / Taken from https://stackoverflow.com/questions/36986925/how-do-i-display-svg-image-in-rails
       =show_svg("gauge.svg")
