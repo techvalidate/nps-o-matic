@@ -1,58 +1,9 @@
 %h1.title NPS-o-Matic
 
-.rateSection
-  %p.sectionTitle Rate!
+= render :partial => "rate"
 
-  .sectionBox
-    .questionText How likely would you be to recommend Acme
-    %div Systems to a friend or colleague?
-    
-    .ratingButtonsContainer
-      - 0.upto(10) do |i|
-        = form_for Rating.new(score: i) do |f|
-          = f.hidden_field :score
-          = f.submit i, :class => "rateButton rateButton#{i}"
-    
-    .likelinessLabels
-      %span.leftLabel Very Unlikely
-      %span.rightLabel Very Likely
-
-.appreciateSection
-  %p.sectionTitle Appreciate!
-
-  .sectionBox
-
-    .appreciateLeft
-
-      .appreciateRatingsCount
-        .ratingCount= number_with_delimiter(Rating.count, :delimiter => ",")
-        .ratingCountLabel= 'Rating'.pluralize(Rating.count)
-
-      .appreciateLeftDivider
-
-      .equationContainer
-        .promoters.equation
-          .top= number_to_percentage(Rating.promoters_percentage, precision: 0)
-          .bottom Promoters
-        
-        .equation.char -
-
-        .detractors.equation
-          .top= number_to_percentage(Rating.detractors_percentage, precision: 0)
-          .bottom Detractors
-        .equation.char =
-
-
-    .appreciateRight
-      / syntax: https://stackoverflow.com/questions/24353788/how-to-do-data-attributes-with-haml-and-rails
-      %div#npsValue{:data => {:nps => Rating.nps}}
-
-      / Taken from https://stackoverflow.com/questions/36986925/how-do-i-display-svg-image-in-rails
-      =show_svg("gauge.svg")
-
-      .npsLabelContainer
-        .npsLabel NPS
-
+#appreciateDiv
+  = render :partial => "appreciate"
 
 .npsColorLegendSection
   %p.sectionTitle NPS Color Legend

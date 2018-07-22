@@ -1,0 +1,35 @@
+.appreciateSection
+  %p.sectionTitle Appreciate!
+
+  .sectionBox
+
+    .appreciateLeft
+
+      .appreciateRatingsCount
+        .ratingCount= number_with_delimiter(Rating.count, :delimiter => ",")
+        .ratingCountLabel= 'Rating'.pluralize(Rating.count)
+
+      .appreciateLeftDivider
+
+      .equationContainer
+        .promoters.equation
+          .top= number_to_percentage(Rating.promoters_percentage, precision: 0)
+          .bottom Promoters
+        
+        .equation.char -
+
+        .detractors.equation
+          .top= number_to_percentage(Rating.detractors_percentage, precision: 0)
+          .bottom Detractors
+        .equation.char =
+
+
+    .appreciateRight
+      / syntax: https://stackoverflow.com/questions/24353788/how-to-do-data-attributes-with-haml-and-rails
+      %div#npsValue{:data => {:nps => Rating.nps}}
+
+      / Taken from https://stackoverflow.com/questions/36986925/how-do-i-display-svg-image-in-rails
+      =show_svg("gauge.svg")
+
+      .npsLabelContainer
+        .npsLabel NPS
