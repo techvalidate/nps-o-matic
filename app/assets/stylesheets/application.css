@@ -68,7 +68,7 @@ body{
 	width: 48px;
 }
 
-.new_rating input.rateButton{
+.ratingButtonsContainer form input.rateButton{
 	border-radius: inherit;
 	color: white;
 	font-size: 12px;
