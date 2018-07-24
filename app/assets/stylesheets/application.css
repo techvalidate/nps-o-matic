@@ -177,10 +177,6 @@ body{
 	justify-content: space-between;
 }
 
-.equation {
-	display: inline-block;
-}
-
 .equation.char {
 	font-size: 32px;
 	color: #999999;

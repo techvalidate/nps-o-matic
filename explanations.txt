@@ -1,0 +1,44 @@
+Explanations of Design Decisions
+
+index.haml layout
+- Top section layout: I used display: inline-block for the Rate and Appreciate sections. The reason was -- I saw in the design that the measurements were set for the section boxes, but the behavior was not specified for when the window size is small. Rather than have the contents of the box shrink during window resizing, I felt it would be better if the Appreciate box simply moved down to the next row. I specified the width and heights for the top section boxes to prevent shrinking of its contents.
+- I also had tried using flex (I don't have previous experience with flex) in order to keep the box heights the same for Rate and Appreciate, but found that shrinking the window size would shrink just the Appreciate section while keeping them both in one row. This is why I decided not to use flex.
+
+
+_rate.haml
+- Rate Section: I used flex to space the rating number buttons. This made the spacing balanced.
+- form_with: I switched the form_for to form_with, because from what I looked up, it seemed that form_for is soft deprecated.
+- "Very Unlikely" and "Very Likely" labels: I used float: left and float: right. I felt that due to the fixed size of the Rate box, there was no concern of the labels overlapping.
+
+
+_appreciate.haml
+- Left and Right: I separated the left section containing the equation from the right section (gauge) by using float: left and float: right, and setting the widths of the sides to 48% to prevent overlapping.
+- Rating Count: I used number_with_delimiter(), to add commas to the number ex. when the count is >= 1000.
+- Equation: I used flex and justify-content: space-between to space out the blocks of the equation.
+
+- Gauge: My original plan was to use the canvas element to draw the gauge. After I contacted Matt, he sent me a .svg file for the gauge. I then realized that Sketch allows creating .svg files. The .svg file from Matt had the pointer slightly to the right. To make calculating the rotation angle easier, I moved around the triangle in Sketch and created a new SVG with the pointer at 0. I replaced part of Matt's .svg file to use the new gauge SVG with the pointer at 0. I used the gauge.svg file by adding a helper function (that I found online) in application_helper.rb.
+
+With window.onload in application.js, I update the gauge angle of the circle with the triangle using Javascript (an angle out of += 135 degrees). In order to keep the gauge from moving after the rotation, I set the rotation center based on the center of the gauge SVG (taken from its size). I also update the color using linear interpolation from the RGB color values at 0 to +- the RGB values at 100. To pass the NPS value to the gauge, I use the data attribute on the div. I wasn't sure of a better way to pass the data -- and I feel this is a better approach than using the text value fo the div.
+
+Due to my use of window.onload, there is a slight delay for the correct gauge info (color and angle) to be displayed. I set the initial gauge color to be the 0 value color, and hide the NPS value until the gauge color and angle are updated, for consistency of experience. I suppose there's a way to transfer my Javascript into .haml so that the gauge can be at the correct setting when initially loaded, but I didn't investigate this.
+
+
+index.haml
+- Color Legend Labels: I used a series of diffs, spaced out with specific margins, to create this section.
+
+
+ratings_controller.rb and create.js.erb
+- No full page reload: In order to not have a full page reload after a rate button is clicked, I updated ratings_controller.rb to return a Javascript response, which is create.js.erb. I updated form_with in _rate.haml to expect the JS response which is executed.
+In create.js.erb, I replace the contents of the appreciate div with the _appreciate.haml template, with the updated Rating data. To update the gauge angle and color after the Appreciate section is replaced, I needed to trigger the Javascript again. 
+
+At one point, I tried adding updateGauge() to the svg file, and calling it onload of the SVG element. Unfortunately, it seemed that the SVG onload function would not get triggered after the div content is replaced. So I had to duplicate the updateGauge() function in create.js.erb instead, as it could not be accessed from application.js. I understand that this could cause race conditions where the Javascript is executed before the new SVG element is loaded. I'm not sure what a better way would be.
+While I was figuring out how to not use a page reload, I had to disable the protect_from_forgery in ratings_controller.rb create(), but I was able to enable it again after my I got the create.js.erb code to execute.
+
+
+Overall
+During this challenge, I learned about HAML, and Ruby on Rails.
+I also learned that sketch provides SVGs. I got to try using SVGs and flex.
+I did not attempt to pass the tests.
+I definitely spent more time than I had originally intended, as it took me a while to understand the Rails code. However, it has been a good learning experience!
+
+
