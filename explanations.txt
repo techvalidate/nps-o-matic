@@ -41,4 +41,7 @@ I also learned that sketch provides SVGs. I got to try using SVGs and flex.
 I did not attempt to pass the tests.
 I definitely spent more time than I had originally intended, as it took me a while to understand the Rails code. However, it has been a good learning experience!
 
+See screenshots:
+nps-o-matic_normal
+nps-o-matic_forced_1234_count
 
