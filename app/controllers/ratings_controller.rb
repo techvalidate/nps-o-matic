@@ -1,6 +1,5 @@
 class RatingsController < ApplicationController
   respond_to :html, :js, :json
-  protect_from_forgery except: :create
 
   def index
   end
