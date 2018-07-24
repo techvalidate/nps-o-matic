@@ -28,7 +28,7 @@ index.haml
 
 
 ratings_controller.rb and create.js.erb
-- No full page reload: In order to not have a full page reload after a rate button is clicked, I updated ratings_controller.rb to return a Javascript response, which is create.js.erb. I updated form_with in _rate.haml to expect the JS response which is executed.
+- No full page reload: In order to not have a full page reload after a rate button is clicked, I updated ratings_controller.rb to return a Javascript response, which is create.js.erb. I updated form_with in _rate.haml to expect the JS response which is executed. I used jquery and jquery-rails to get the create.js.erb contents to be executed (rather than just being displayed as a text file).
 In create.js.erb, I replace the contents of the appreciate div with the _appreciate.haml template, with the updated Rating data. To update the gauge angle and color after the Appreciate section is replaced, I needed to trigger the Javascript again. 
 
 At one point, I tried adding updateGauge() to the svg file, and calling it onload of the SVG element. Unfortunately, it seemed that the SVG onload function would not get triggered after the div content is replaced. So I had to duplicate the updateGauge() function in create.js.erb instead, as it could not be accessed from application.js. I understand that this could cause race conditions where the Javascript is executed before the new SVG element is loaded. I'm not sure what a better way would be.
@@ -40,6 +40,8 @@ During this challenge, I learned about HAML, and Ruby on Rails.
 I also learned that sketch provides SVGs. I got to try using SVGs and flex.
 I did not attempt to pass the tests.
 I definitely spent more time than I had originally intended, as it took me a while to understand the Rails code. However, it has been a good learning experience!
+
+NOTE: I added jquery and jquery-rails during this challenge. I also added gem 'responders' which I never removed after, though I don't think I'm actually using it...
 
 See screenshots:
 nps-o-matic_normal
