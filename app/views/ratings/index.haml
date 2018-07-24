@@ -1,31 +1,17 @@
-%h1 NPS-o-Matic
+%h1.title NPS-o-Matic
 
-%p Rate!
+.rateSection
+  = render :partial => "rate"
 
-%p How likely would you be to recommend Acme Systems to a friend or colleague?
+#appreciateDiv.appreciateSection
+  = render :partial => "appreciate"
 
-- 0.upto(10) do |i|
-  = form_for Rating.new(score: i) do |f|
-    = f.hidden_field :score
-    = f.submit i
+.npsColorLegendSection
+  %p.sectionTitle NPS Color Legend
+  .colorLegend
 
-
-%p Appreciate!
-
-%p= pluralize Rating.count, 'Rating'
-
-
-%p
-  = number_to_percentage Rating.promoters_percentage
-  Promoters
-
-%p
-  = number_to_percentage Rating.detractors_percentage
-  Detractors
-
-%p
-  NPS
-  = Rating.nps
-
-
-%p NPS Color Legend
+  .colorLegendLabels
+    - 0.upto(8) do |i|
+      .colorLegendLabelBlock
+        .colorLegendStroke
+        .colorLegendValue #{-100 + (i * 25)}

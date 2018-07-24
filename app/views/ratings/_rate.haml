@@ -1,0 +1,15 @@
+%p.sectionTitle Rate!
+
+.sectionBox
+  .questionText How likely would you be to recommend Acme
+  %div Systems to a friend or colleague?
+  
+  .ratingButtonsContainer
+    - 0.upto(10) do |i|
+      = form_with model: Rating.new(score: i), :format => "js", :multipart => true, :type =>"script" do |f|
+        = f.hidden_field :score
+        = f.submit i, :class => "rateButton rateButton#{i}"
+  
+  .likelinessLabels
+    %span.leftLabel Very Unlikely
+    %span.rightLabel Very Likely

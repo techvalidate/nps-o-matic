@@ -13,3 +13,278 @@
  *= require_tree .
  *= require_self
  */
+
+body{
+	background-color: rgb(247, 248, 250);
+	font-family: 'SF UI Text';
+	font-weight: 300;
+	margin: 72px 80px 72px 80px;
+}
+
+.title {
+	font-family: 'SF UI Display';
+	font-weight: 300;
+}
+
+.sectionTitle {
+	color: rgb(107, 120, 127);
+	font-weight: 300;
+	width: 624px;
+}
+
+.sectionBox {
+	background-color: white;
+	border: 1px rgb(220, 221, 222);
+	box-shadow: 0px 1px 4px rgb(220, 221, 222);
+	height: 207px;
+	padding: 32px;
+	width: 560px;
+}
+
+/* Rate Section */
+.rateSection {
+	display: inline-block;
+	margin: 0px 0px 40px 0px;
+	overflow: scroll;
+	padding: 5px; /* show box-shadow of sectionBox */
+	width: 624px;
+}
+
+.questionText {
+	margin-bottom: 5px;
+}
+
+.ratingButtonsContainer {
+	display: flex;
+	margin: 60px 0px 0px 0px;
+}
+
+.ratingButtonsContainer form {
+	border-radius: 3px;
+	display: inline-block;
+	flex: 1;
+	height: 48px;
+	margin-left: 2px;
+	width: 48px;
+}
+
+.ratingButtonsContainer form input.rateButton{
+	border-radius: inherit;
+	color: white;
+	font-size: 12px;
+	height: 100%;
+	width: 100%;
+}
+
+/* Rate buttons */
+.rateButton0 {
+	background-color: #81AED7;
+}
+
+.rateButton1 {
+	background-color: #75A7D4;
+}
+
+.rateButton2 {
+	background-color: #689ED0;
+}
+
+.rateButton3 {
+	background-color: #5C96CB;
+}
+
+.rateButton4 {
+	background-color: #4F8EC7;
+}
+
+.rateButton5 {
+	background-color: #4387C4;
+}
+
+.rateButton6 {
+	background-color: #367EC0;
+}
+
+.rateButton7 {
+	background-color: #2976BC;
+}
+
+.rateButton8 {
+	background-color: #106EB7;
+}
+
+
+.rateButton9 {
+	background-color: #1166B4;
+}
+
+.rateButton10 {
+	background-color: #045EB0;
+}
+
+.likelinessLabels {
+	font-size: 12px;
+	color: #045EB0;
+	margin: 10px 2px 0px 2px;
+}
+
+.likelinessLabels .leftLabel {
+	float: left;
+}
+
+.likelinessLabels .rightLabel {
+	float: right;
+}
+
+
+/* Appreciate Section */
+.appreciateSection {
+	display: inline-block;
+	margin-bottom: 40px;
+	overflow: scroll;
+	padding: 5px; /* show box-shadow of sectionBox */
+	width: 624px;
+}
+
+.appreciateLeft {
+	display: inline-block;
+	float: left;
+	width: 48%;
+}
+
+.appreciateRatingsCount {
+	color: rgb(107, 120, 127);
+}
+
+.appreciateRatingsCount .ratingCount {
+	font-size: 32px;
+}
+
+.appreciateRatingsCount .ratingCountLabel {
+	font-size: 14px;
+}
+
+.appreciateLeftDivider {
+	background-color: #D0D2D3;
+	height: 1px;
+	margin: 40px 0px 40px 0px;
+	width: 268px;
+}
+
+.equationContainer {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.equation.char {
+	font-size: 32px;
+	color: #999999;
+}
+
+.equation .top {
+	font-size: 32px;
+}
+
+.equation .bottom {
+	font-size: 14px;
+}
+
+.promoters {
+	color: #23D385;
+}
+
+.detractors {
+	color: #D22953;
+}
+
+.appreciateRight {
+	display: inline-block;
+	float: right;
+	position: relative;
+	width: 48%;
+}
+
+/* appreciateRight contents all have the same height, width, left and top positions, 
+making them overlap perfectly for easier control on centering */
+
+.appreciateRight svg {
+	left: 60px;
+	position: absolute;
+	top: 20px;
+	z-index: 1; /* show below npsValue */
+}
+
+#npsValue {
+	color: white;
+	font-size: 32px;
+	height: 172px;
+	left: 60px;
+	line-height: 172px; /* vertically center */
+	position: absolute;
+	text-align: center;
+	top: 20px;
+	width: 173px;
+	z-index: 2; /* show above gauge */
+}
+
+.npsLabelContainer {
+	color: #999999;
+	font-size: 14px;
+	height: 172px;
+	left: 60px;
+	position: absolute;
+	text-align: center;
+	top: 20px;
+	width: 173px;
+	z-index: 2; /* show above gauge */
+}
+
+.npsLabel {
+	bottom: 12px;
+	left: 0px;
+	position: absolute;
+	right: 0px;
+}
+
+/* NPS Color Legend Section */
+.npsColorLegendSection {
+	margin-top: 20px;
+}
+
+.colorLegend {
+	background: grey; /* For browsers that do not support gradients */
+    background: linear-gradient(to right, rgb(210, 41, 83), rgb(249,190,0) , rgb(35, 211, 133));
+	border-radius: 12px;
+	margin-left: 16px;
+	height: 16px;
+	width: 594px;
+}
+
+.colorLegendLabels {
+	display: block;
+	font-size: 0px; /* remove auto-spacing between colorLegendLabelBlocks */
+	margin-left: -21px; /* shift left so numbers are centered at start of color legend */
+	width: 666px;
+}
+
+.colorLegendLabelBlock {
+	display: inline-block;
+	width: 74px;
+}
+
+.colorLegendStroke {
+	background-color: #D0D2D3;
+	display: inline-block;
+	height: 16px;
+	margin: 15px 36px 15px 37px;
+	width: 1px;
+}
+
+.colorLegendValue {
+	color: #D0D2D3;
+	font-size: 12px;
+	text-align: center;
+	margin: auto;
+}
+
