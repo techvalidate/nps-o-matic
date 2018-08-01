@@ -7,4 +7,19 @@
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
 
-console.log('Hello World from Webpacker');
+import * as d3 from 'd3';
+
+function test() {
+    // update color based on value ------------
+    // https://github.com/d3/d3-scale
+    const rating = d3.select('#hidden-rating').text();
+    const color = d3.scaleLinear().domain([-100, 0, 100]).range(["#D22953", "#F9BE00", "#23D385"]);
+    d3.selectAll('#dial').style('fill', color(rating));
+    d3.select('#rating-value').text(rating);
+    // update rating value in gauge 
+    // rotate dial -----------
+};
+
+window.onload = () => { 
+    test();
+}
