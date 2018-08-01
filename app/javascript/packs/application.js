@@ -12,21 +12,29 @@ import * as d3 from 'd3';
 function test() {
     // update color based on value ------------
     // https://github.com/d3/d3-scale
-    const rating = d3.select('#hidden-rating').text();
+    let rating = d3.select('#hidden-rating').text();
     const color = d3.scaleLinear().domain([-100, 0, 100]).range(["#D22953", "#F9BE00", "#23D385"]);
     d3.selectAll('#dial').style('fill', color(rating));
     d3.select('#rating-value').text(rating);
     const needle = d3.select('.needle');
-    // <circle cx="86" cy="86" r="43.8" class="circle">
-    var originX = 86;
-    var originY = 86;
-    var innerCircleRadius = 43.8;    
-    // needle.attr("transform", "rotate(45, 200, 200)");
-    var svg = d3.select('.circle');
+
+    const needleOriginX =  86 + (44 * Math.sin(0))
+    const needleOriginY =  86 - (44 * Math.cos(0))
+    needle.attr("x", needleOriginX - (10))
+    needle.attr("y", needleOriginY - (10))
+    rating = updateRating(rating)
+    needle.transition().duration(1500).ease(d3.easePoly).attr("transform", `rotate(${rating}, 86, 86)`);
 
     // update rating value in gauge 
     // rotate dial -----------
 };
+
+function updateRating(rating) {
+    // if (Math.sign(rating)) {
+        // debugger
+        return Math.sign(rating) < 0  ? parseInt(rating) - 30 : parseInt(rating) + 30 
+ 
+}
 
 window.onload = () => { 
     test();
