@@ -23,17 +23,21 @@ function test() {
     needle.attr("x", needleOriginX - (10))
     needle.attr("y", needleOriginY - (10))
     rating = updateRating(rating)
-    needle.transition().duration(1500).ease(d3.easePoly).attr("transform", `rotate(${rating}, 86, 86)`);
+    needle.transition().duration(1500).ease(d3.easeBack).attr("transform", `rotate(${rating}, 86, 86)`);
 
     // update rating value in gauge 
     // rotate dial -----------
 };
 
 function updateRating(rating) {
-    // if (Math.sign(rating)) {
-        // debugger
-        return Math.sign(rating) < 0  ? parseInt(rating) - 30 : parseInt(rating) + 30 
- 
+    const ratingSign = Math.sign(rating); 
+    rating = parseInt(rating);
+    
+    if (ratingSign) {
+        rating = ratingSign < 0  ? rating - 30 : rating + 30 
+    }
+   
+    return rating;
 }
 
 window.onload = () => { 
