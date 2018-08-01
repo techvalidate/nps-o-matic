@@ -682,8 +682,8 @@
                 </g>
                 <path d="M86.5,129 C110.524387,129 130,109.524387 130,85.5 C130,61.4756134 110.524387,42 86.5,42 C62.4756134,42 43,61.4756134 43,85.5 C43,109.524387 62.4756134,129 86.5,129 Z" id="dial" fill="#93C83F"></path>
                 <path d="M129.489817,42.9847758 C129.975373,41.9932976 130.765348,41.9988802 131.248169,42.9847758 L145.524072,72.1353988 C146.009628,73.1268771 145.512083,73.930629 144.397219,73.930629 L116.340767,73.930629 C115.232868,73.930629 114.731093,73.1212944 115.213914,72.1353988 L129.489817,42.9847758 Z" id="dial" fill="#93C83F" transform="translate(130.370094, 58.086944) scale(-1, 1) rotate(-56.000000) translate(-130.370094, -58.086944) "></path>
-                <text id="51" font-family=".SFNSDisplay, .SF NS Display" font-size="36" font-weight="300" fill="#FFFFFF">
-                    <tspan x="68.1035156" y="99" id="rating-value"></tspan>
+                <text id="51" font-family=".SFNSDisplay, .SF NS Display" font-size="36" font-weight="300" fill="#FFFFFF" y="50" transform="translate(80, 50)">
+                    <tspan x="7" id="rating-value" text-anchor="middle"></tspan>
                 </text>
             </g>
         </g>
