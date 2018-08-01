@@ -9,37 +9,42 @@
 
 import * as d3 from 'd3';
 
-function test() {
-    // update color based on value ------------
-    // https://github.com/d3/d3-scale
-    let rating = d3.select('#hidden-rating').text();
-    const color = d3.scaleLinear().domain([-100, 0, 100]).range(["#D22953", "#F9BE00", "#23D385"]);
-    d3.selectAll('#dial').style('fill', color(rating));
-    d3.select('#rating-value').text(rating);
-    const needle = d3.select('.needle');
-
-    const needleOriginX =  86 + (44 * Math.sin(0))
-    const needleOriginY =  86 - (44 * Math.cos(0))
-    needle.attr("x", needleOriginX - (10))
-    needle.attr("y", needleOriginY - (10))
-    rating = updateRating(rating)
-    needle.transition().duration(1500).ease(d3.easeBack).attr("transform", `rotate(${rating}, 86, 86)`);
-
-    // update rating value in gauge 
-    // rotate dial -----------
+window.onload = () => { 
+    updateGauge();
 };
 
-function updateRating(rating) {
-    const ratingSign = Math.sign(rating); 
-    rating = parseInt(rating);
+const updateGauge = () => {
+    const npsVal = d3.select('#hidden-nps-val').text();
+    updateGaugeColor(npsVal);
+    updateNpsValue(npsVal);
+    rotateNeedle(npsVal);
+};
+
+const updateGaugeColor = (npsVal) => {
+    const color = d3.scaleLinear().domain([-100, 0, 100]).range(["#D22953", "#F9BE00", "#23D385"]);
+    d3.selectAll('#dial').style('fill', color(npsVal));
+};
+
+const updateNpsValue = (npsVal) => {
+    d3.select('#rating-value').text(npsVal);
+};
+
+const rotateNeedle = (npsVal) => {
+    const needle = d3.select('.needle');
+    // x & y values found using math in: https://spin.atomicobject.com/2015/06/12/objects-around-svg-circle-d3-js/
+    needle.attr("x", 76);
+    needle.attr("y", 32);
+    npsVal = scaleNpsValToGaugeDimensions(npsVal);
+    needle.transition().duration(1500).ease(d3.easeBack).attr('transform', `rotate(${npsVal}, 86, 86)`);
+};
+
+const scaleNpsValToGaugeDimensions = (npsVal) => {
+    const ratingSign = Math.sign(npsVal); 
+    npsVal = parseInt(npsVal);
     
     if (ratingSign) {
-        rating = ratingSign < 0  ? rating - 30 : rating + 30 
-    }
+        npsVal = ratingSign < 0  ? npsVal - 30 : npsVal + 30;
+    };
    
-    return rating;
-}
-
-window.onload = () => { 
-    test();
-}
+    return npsVal;
+};

@@ -5,6 +5,7 @@
     %p.card-title Rate!
     .card-content
       %p.question How likely would you be to recommend Acme Systems to a friend or colleague?
+      .rate-container
       .rate-btns
         - 0.upto(10) do |i|
           = form_for Rating.new(score: i) do |f|
@@ -19,7 +20,7 @@
     .card-content
       .appreciate 
         .appreciate-left
-          .rating
+          .nps-val
             = Rating.count 
             %span= 'Rating'.pluralize(Rating.count)
           .addition
@@ -34,7 +35,7 @@
         .appreciate-right
           .gauge
             = svg('gauge')
-            %span#hidden-rating
+            %span#hidden-nps-val
               = Rating.nps
 
 .nps-container
@@ -44,6 +45,6 @@
     - 0.upto(8) do |i| 
       .marker-container
         .marker
-          .thing
-          .thing
+          .half
+          .half
         .marker-label #{-100 + (i * 25)}
