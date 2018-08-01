@@ -1,49 +1,49 @@
 %h1 NPS-o-Matic 
 
-  .card-container
-    .card
-      %p.card-title Rate!
-      .card-content
-        %p.question How likely would you be to recommend Acme Systems to a friend or colleague?
-        .rate-btns
-          - 0.upto(10) do |i|
-            = form_for Rating.new(score: i) do |f|
-              = f.hidden_field :score
-              = f.submit i, :class => "rate-btn color-#{i}"
-        .labels
-          %span Very Unlikely
-          %span Very Likely
-  
-    .card
-      %p.card-title Appreciate!
-      .card-content
-        .appreciate 
-          .appreciate-left
-            .rating
-              = Rating.count 
-              %span= 'Rating'.pluralize(Rating.count)
-            .addition
-              %p.promoters
-                = number_to_percentage(Rating.promoters_percentage, precision: 0)
-                %span.label Promoters
-              %span.sign -
-              %p.detractors
-                = number_to_percentage(Rating.detractors_percentage, precision: 0)
-                %span.label Detractors
-              %span.sign =
-          .appreciate-right
-            .gauge
-              = svg('gauge')
-              %span#hidden-rating
-                = Rating.nps
-  
-  .nps-container
-    %p NPS Color Legend
-    .progress-bar
-    .progress-markers
-      - 0.upto(8) do |i| 
-        .marker-container
-          .marker
-            .thing
-            .thing
-          .marker-label #{-100 + (i * 25)}
+.card-container
+  .card
+    %p.card-title Rate!
+    .card-content
+      %p.question How likely would you be to recommend Acme Systems to a friend or colleague?
+      .rate-btns
+        - 0.upto(10) do |i|
+          = form_for Rating.new(score: i) do |f|
+            = f.hidden_field :score
+            = f.submit i, :class => "rate-btn color-#{i}"
+      .labels
+        %span Very Unlikely
+        %span Very Likely
+
+  .card
+    %p.card-title Appreciate!
+    .card-content
+      .appreciate 
+        .appreciate-left
+          .rating
+            = Rating.count 
+            %span= 'Rating'.pluralize(Rating.count)
+          .addition
+            %p.promoters
+              = number_to_percentage(Rating.promoters_percentage, precision: 0)
+              %span.label Promoters
+            %span.sign -
+            %p.detractors
+              = number_to_percentage(Rating.detractors_percentage, precision: 0)
+              %span.label Detractors
+            %span.sign =
+        .appreciate-right
+          .gauge
+            = svg('gauge')
+            %span#hidden-rating
+              = Rating.nps
+
+.nps-container
+  %p NPS Color Legend
+  .progress-bar
+  .progress-markers
+    - 0.upto(8) do |i| 
+      .marker-container
+        .marker
+          .thing
+          .thing
+        .marker-label #{-100 + (i * 25)}
