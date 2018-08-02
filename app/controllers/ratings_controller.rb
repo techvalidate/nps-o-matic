@@ -4,6 +4,7 @@ class RatingsController < ApplicationController
   end
 
   def create
+    byebug
     @rating = Rating.new params.fetch(:rating, {}).permit(:score)
     @rating.save!
     redirect_to root_url

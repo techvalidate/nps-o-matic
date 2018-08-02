@@ -8,7 +8,7 @@
       .rate-container
       .rate-btns
         - 0.upto(10) do |i|
-          = form_for Rating.new(score: i) do |f|
+          = form_for Rating.new(score: i), :remote => true, :authenticity_token => true do |f|
             = f.hidden_field :score
             = f.submit i, :class => "rate-btn color-#{i}"
       .labels
