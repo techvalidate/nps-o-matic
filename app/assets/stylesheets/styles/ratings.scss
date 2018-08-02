@@ -1,0 +1,19 @@
+#nps_area{
+  display: grid;
+  
+  #rate_area{
+    grid-column: 1 ;
+    grid-row: 1;
+
+    .new_rating{
+      float: left;
+    }  
+  }
+
+
+  #appreciate_area{
+    grid-column: 2 ;
+    grid-row: 1;
+  }
+
+}

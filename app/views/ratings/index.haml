@@ -1,31 +1,33 @@
 %h1 NPS-o-Matic
 
-%p Rate!
+#nps_area
+  #rate_area
+    %p Rate!
 
-%p How likely would you be to recommend Acme Systems to a friend or colleague?
+    %p How likely would you be to recommend Acme Systems to a friend or colleague?
 
-- 0.upto(10) do |i|
-  = form_for Rating.new(score: i) do |f|
-    = f.hidden_field :score
-    = f.submit i
+    - 0.upto(10) do |i|
+      = form_for Rating.new(score: i) do |f|
+        = f.hidden_field :score
+        = f.submit i
 
+  #appreciate_area
+    %p Appreciate!
 
-%p Appreciate!
-
-%p= pluralize Rating.count, 'Rating'
-
-
-%p
-  = number_to_percentage Rating.promoters_percentage
-  Promoters
-
-%p
-  = number_to_percentage Rating.detractors_percentage
-  Detractors
-
-%p
-  NPS
-  = Rating.nps
+    %p= pluralize Rating.count, 'Rating'
 
 
-%p NPS Color Legend
+    %p
+      = number_to_percentage Rating.promoters_percentage
+      Promoters
+
+    %p
+      = number_to_percentage Rating.detractors_percentage
+      Detractors
+
+    %p
+      NPS
+      = Rating.nps
+
+  #nps_color_legend_area
+    %p NPS Color Legend
