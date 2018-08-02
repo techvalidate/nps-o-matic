@@ -9,9 +9,9 @@
 
 import * as d3 from 'd3';
 
-window.onload = () => { 
+$(() => {
     updateGauge();
-};
+});
 
 const updateGauge = () => {
     const npsVal = d3.select('#hidden-nps-val').text();
@@ -35,6 +35,7 @@ const rotateNeedle = (npsVal) => {
     needle.attr("x", 76);
     needle.attr("y", 32);
     npsVal = scaleNpsValToGaugeDimensions(npsVal);
+    debugger
     needle.transition().duration(1500).ease(d3.easeBack).attr('transform', `rotate(${npsVal}, 86, 86)`);
 };
 
