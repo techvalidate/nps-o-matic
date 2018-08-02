@@ -8,6 +8,7 @@ gem 'sqlite3', '1.3.13'
 gem 'uglifier', '4.0.1'
 gem 'webpacker', '3.0.2'
 gem 'jquery-rails' 
+gem 'responders'
 
 group :development, :test do
   gem 'byebug', '9.1.0'

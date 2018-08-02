@@ -11,6 +11,7 @@ import * as d3 from 'd3';
 
 $(() => {
     updateGauge();
+    $('.new_rating').on('ajax:success', console.log("hi"));
 });
 
 const updateGauge = () => {
