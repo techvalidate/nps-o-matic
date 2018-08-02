@@ -35,7 +35,6 @@ const rotateNeedle = (npsVal) => {
     needle.attr("x", 76);
     needle.attr("y", 32);
     npsVal = scaleNpsValToGaugeDimensions(npsVal);
-    debugger
     needle.transition().duration(1500).ease(d3.easeBack).attr('transform', `rotate(${npsVal}, 86, 86)`);
 };
 
