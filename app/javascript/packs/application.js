@@ -7,4 +7,45 @@
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
 
-console.log('Hello World from Webpacker');
+import * as d3 from 'd3';
+
+$(() => {
+    updateGauge();
+    $('.new_rating').on('ajax:success', console.log("hi"));
+});
+
+const updateGauge = () => {
+    const npsVal = d3.select('#hidden-nps-val').text();
+    updateGaugeColor(npsVal);
+    updateNpsValue(npsVal);
+    rotateNeedle(npsVal);
+};
+
+const updateGaugeColor = (npsVal) => {
+    const color = d3.scaleLinear().domain([-100, 0, 100]).range(["#D22953", "#F9BE00", "#23D385"]);
+    d3.selectAll('#dial').style('fill', color(npsVal));
+};
+
+const updateNpsValue = (npsVal) => {
+    d3.select('#rating-value').text(npsVal);
+};
+
+const rotateNeedle = (npsVal) => {
+    const needle = d3.select('.needle');
+    // x & y values found using math in: https://spin.atomicobject.com/2015/06/12/objects-around-svg-circle-d3-js/
+    needle.attr("x", 76);
+    needle.attr("y", 32);
+    npsVal = scaleNpsValToGaugeDimensions(npsVal);
+    needle.transition().duration(1500).ease(d3.easeBack).attr('transform', `rotate(${npsVal}, 86, 86)`);
+};
+
+const scaleNpsValToGaugeDimensions = (npsVal) => {
+    const ratingSign = Math.sign(npsVal); 
+    npsVal = parseInt(npsVal);
+    
+    if (ratingSign) {
+        npsVal = ratingSign < 0  ? npsVal - 30 : npsVal + 30;
+    };
+   
+    return npsVal;
+};

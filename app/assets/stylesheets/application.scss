@@ -1,0 +1,246 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ // media queries for responsiveness -----------------------
+
+// Screen size variables
+$screen-xs-min: 425px;  // Tiny phones
+$screen-sm-min: 576px;  // Small tablets and large smartphones (landscape view)
+$screen-md-min: 768px;  // Small tablets (portrait view)
+$screen-lg-min: 992px;  // Tablets and small desktops
+$screen-xl-min: 1200px; // Large tablets and desktops
+
+// Mixins
+@mixin xs { @media (min-width: #{$screen-xs-min}) {@content;} } // Tiny devices
+@mixin sm { @media (min-width: #{$screen-sm-min}) {@content;} } // Small devices
+@mixin md { @media (min-width: #{$screen-md-min}) {@content;} } // Medium devices
+@mixin lg { @media (min-width: #{$screen-lg-min}) {@content;} } // Large devices
+@mixin xl { @media (min-width: #{$screen-xl-min}) {@content;} } // x-large devices
+
+
+
+body {
+    background-color: #f7f8fa;
+    font-family: 'SF UI Text';
+    margin: 50px;
+}
+
+h1 {
+    font-family: 'SF UI Display';
+    color: #343f49;
+	font-weight: 400;
+}
+
+.card-container {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: 1fr;
+    @include lg {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.card-content {
+    height: 150px;
+    padding: 30px;
+    background-color: #ffffff;
+    border: solid 1px #f2f2f2;
+    box-shadow: 1px 1px 5px #efeded;
+    color: #4a5256;
+    p.question {
+        font-size: 16px;
+        font-weight: 100;
+        margin-top: 0;
+    }
+}
+
+.card-title {
+    color: #777f85;
+    font-size: 12px;
+    font-weight: 1;
+}
+
+
+//  Rate Section ----------- 
+
+    input.rate-btn {
+        border: none;
+        color: white;
+        font-size: 12px;
+        font-weight: 100;
+        border-radius: 2px;
+        text-decoration: none;
+        margin: 4px 1px;
+        padding: 4px 7px;
+        cursor: pointer;
+        @include sm {
+            padding: 9px 12px;
+        }
+        @include xl {
+            padding: 13px 16px;
+        }
+    }
+
+    .rate-btns {
+        display: flex;
+        flex-direction: row;
+        padding: 25px 0 5px;
+    }
+
+    .labels {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        color: rgb(29, 114, 193);
+        font-size: 11px;
+        width: 262px;
+        :last-child {
+            text-align: right;
+        }
+        @include sm {
+            width: 370px;
+        }
+        @include xl {
+            width: 460px;
+        }
+    }
+
+    @mixin color-rate-btns ($count, $base-color) {
+        @for $i from 0 through $count {
+            $background-color: saturate(darken($base-color, $i * $i/3), $i * 3%); 
+            input.color-#{$i} {
+                background: $background-color;
+            }
+        }
+    }
+    
+    @include color-rate-btns(10,#7aa5ca);
+    
+    
+    
+// Apreciate Section ----------------------
+    
+    .appreciate {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        grid-gap: 30px;
+    }
+    
+    .appreciate-left {
+        display: grid;
+        grid-template-rows: 68px 1fr;
+        font-size: 20px;
+        font-weight: 300;
+        @include sm {
+            font-size: 26px;
+        }
+        @include lg {
+            font-size: 28px;
+        }
+    }
+
+    .appreciate-left .addition {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        text-align: center;
+        p.promoters {
+            display: grid;
+            color: #23D385;
+        }
+        p.detractors {
+            display: grid;
+            color: #D22953;
+        }
+        span.sign {
+            padding-top: 32px;
+            color: #999999;
+        }
+        span.label {
+            font-size: 12px;
+        }
+        @include sm {
+            text-align: left;
+        }
+        @include lg {
+            text-align: center;
+        }
+    }
+
+        
+    .appreciate-left .nps-val:after {
+        content: "";  
+        display: block; 
+        margin: 26px 0 0;
+        width: 90%;
+        height: 1px; 
+        border-bottom: 1px solid rgb(225, 225, 225);; 
+    }
+    
+    #gauge {
+        width: 100%;
+    }
+
+    #hidden-nps-val {
+        display: none;
+    }
+
+    .nps-val {
+        color: #6B787F;
+        span {
+            display: flex;
+            font-size: 12px;
+        }
+    }
+    
+// NPS Spectrum ---------------------
+    
+    .progress-bar { 
+        display: block;
+        margin: 20px;
+        background: linear-gradient(to right, #D22953,#F9BE00,#23D385);
+        border-radius: 5px;
+        height: 10px;
+    }
+
+    .progress-markers {
+        display: grid;
+        color: #b5bbbf;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+
+    .marker {
+        height: 10px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin-bottom: 10px;
+        :first-child {
+            border-right: solid 1px #cccccd;
+        }
+    }
+
+    .marker-label {
+        text-align: center;
+    }
+
+    .nps-container {
+        width: 100%;
+        font-size: 12px;
+        font-weight: 300;
+        margin-top: 35px;
+        color: #7d888e;
+        @include md {
+            width: 50%;
+        }
+    }
