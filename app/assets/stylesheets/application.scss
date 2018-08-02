@@ -110,9 +110,6 @@ h1 {
             text-align: right;
         }
         @include sm {
-            width: 305px;
-        }
-        @include md {
             width: 370px;
         }
         @include xl {
@@ -173,6 +170,12 @@ h1 {
         span.label {
             font-size: 12px;
         }
+        @include sm {
+            text-align: left;
+        }
+        @include lg {
+            text-align: center;
+        }
     }
 
         
@@ -186,10 +189,7 @@ h1 {
     }
     
     #gauge {
-        width: 90%;
-        @include xl {
-            width: 100%;
-        }
+        width: 100%;
     }
 
     #hidden-nps-val {
