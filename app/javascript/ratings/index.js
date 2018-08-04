@@ -1,5 +1,3 @@
-const xmlHttp = new XMLHttpRequest();
-
 document.addEventListener('DOMContentLoaded', () => {
   const ratingButtons = document.getElementsByClassName('new_rating');
 
@@ -11,28 +9,26 @@ document.addEventListener('DOMContentLoaded', () => {
     );
 });
 
-
 const getRatings = function(ratingClicked) {
+  const xmlHttp = new XMLHttpRequest();
   const url = ratingClicked.action;
   const authenticityToken = ratingClicked.querySelector('[name="authenticity_token"]').value;
   const ratingScore = ratingClicked.querySelector('[name="rating[score]"]').value;
-  const params = `rating[score]=${ratingScore}`;
+  const params = { rating: { score: ratingScore }};
 
+  xmlHttp.open('POST', url, true); 
+  xmlHttp.setRequestHeader('X-CSRF-Token', authenticityToken);
+  xmlHttp.setRequestHeader('Content-Type', 'application/json');
+  xmlHttp.responseType = 'json';
+  
   xmlHttp.onreadystatechange = () => {
-    if (xmlHttp.readyState === 4 && xmlHttp.status === 200) { // checks if response was with status -> "OK"
-      // var re = JSON.parse(xmlHttp.responseText); // gets data and parses it, in this case we know that data type is JSON. 
-      // if(re["Status"] === "Success"){
-      // 
-      //  
-      // }
-      // else {
-      //     
-      // }
+    if (xmlHttp.readyState === 4 && xmlHttp.status === 200) { 
+      document.getElementById('rate_tally').innerHTML = xmlHttp.response.rating_html;
+      document.getElementById('nps_value').innerHTML = xmlHttp.response.nps_value;
     }
   };  
 
-  xmlHttp.open('POST', url); 
-  xmlHttp.setRequestHeader('X-CSRF-Token', authenticityToken);
-  xmlHttp.send(params); 
+
+  xmlHttp.send(JSON.stringify(params)); 
 };
 

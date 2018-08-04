@@ -14,19 +14,11 @@
   #appreciate_area
     %p Appreciate!
 
-    %p= pluralize Rating.count, 'Rating'
+    #rate_tally
+      = render :partial => "rating_area"
 
-
-    %p
-      = number_to_percentage Rating.promoters_percentage
-      Promoters
-
-    %p
-      = number_to_percentage Rating.detractors_percentage
-      Detractors
-
-    %p
-      NPS
+    %p NPS
+    #nps_value
       = Rating.nps
 
   #nps_color_legend_area
