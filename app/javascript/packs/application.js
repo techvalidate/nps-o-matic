@@ -8,3 +8,5 @@
 // layout file, like app/views/layouts/application.html.erb
 
 import '../ratings';
+import '../images/gauge.svg';
+import '../images/nps-gradient.svg';

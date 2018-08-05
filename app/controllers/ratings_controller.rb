@@ -12,7 +12,7 @@ class RatingsController < ApplicationController
     render json: {
       :status => :ok,
       :rating_html => rating_html_content,
-      :nps_value =>  Rating.nps
+      :nps_score =>  Rating.nps
     }
   rescue ActiveRecord::RecordInvalid
     flash[:error] = 'Could not save score'

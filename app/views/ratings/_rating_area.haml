@@ -1,10 +1,11 @@
-%p#ratings= pluralize Rating.count, 'Rating'
+#ratings_value
+  = pluralize Rating.count, 'Rating'
 
-%p#promoters_percentage
+#promoters_percentage
   = number_to_percentage Rating.promoters_percentage
   Promoters
 
-%p#detractors_percentage
+#detractors_percentage
   = number_to_percentage Rating.detractors_percentage
   Detractors
 

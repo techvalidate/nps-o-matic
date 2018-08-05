@@ -1,25 +1,36 @@
 %h1 NPS-o-Matic
 
-#nps_area
+#nps_o_matic_area
   #rate_area
-    %p Rate!
+    %h2{:class => "heading"} Rate!
 
-    %p How likely would you be to recommend Acme Systems to a friend or colleague?
+    #rating_scores
+      %p
+        How likely would you be to recommend Acme
+        %br
+        Systems to a friend or colleague?
 
-    - 0.upto(10) do |i|
-      = form_for Rating.new(score: i) do |f|
-        = f.hidden_field :score
-        = f.submit i
+      - 0.upto(10) do |i|
+        = form_for Rating.new(score: i), :namespace => "rating_#{i}" do |f|
+          = f.hidden_field :score
+          = f.submit i
+      .likely_text
+        %span{:class => "unlikely"} Very Unlikely
+        %span{:class => "likely"}  Very Likely
 
   #appreciate_area
-    %p Appreciate!
+    %h2{:class => "heading"} Appreciate!
 
     #rate_tally
       = render :partial => "rating_area"
 
-    %p NPS
-    #nps_value
-      = Rating.nps
+    #nps_area
+      %p NPS
+      #nps_score
+        = Rating.nps
+      #nps_gauge
+        %object{:id => 'gauge_object', :data => asset_pack_path('images/gauge.svg'), :type => 'image/svg+xml'}
 
   #nps_color_legend_area
-    %p NPS Color Legend
+    %h2{:class => "heading"} NPS Color Legend
+    = image_tag asset_pack_path('images/nps-gradient.svg')
