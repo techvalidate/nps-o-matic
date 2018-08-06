@@ -1,4 +1,7 @@
-//  import * as d3 from "d3";
+import * as d3 from 'd3';
+import * as gauge from '../images/gauge.svg';
+
+let npsScore = 0;
 
 document.addEventListener('DOMContentLoaded', () => {
   const ratingButtons = document.getElementsByClassName('new_rating');
@@ -10,8 +13,14 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     );
 
-  // @TODO: append gauge to nps_gauge div and manipulate according to nps_score once page has loaded
-  // drawGauge();
+  d3.svg(gauge).then((data) => {
+    d3.select('#nps_gauge').node().appendChild(data.documentElement);
+    npsScore = document.getElementById('nps_score').innerHTML;
+    d3.select('#nps_gauge').select('.gauge-rotater').selectAll('path')
+      .attr('fill', getNPSColor(npsScore));
+  });
+
+  // @TODO: rotate gauge according to npsScore once page has loaded
 });
 
 const getRatings = function(ratingClicked) {
@@ -29,40 +38,18 @@ const getRatings = function(ratingClicked) {
   xmlHttp.onreadystatechange = () => {
     if (xmlHttp.readyState === 4 && xmlHttp.status === 200) { 
       document.getElementById('rate_tally').innerHTML = xmlHttp.response.rating_html;
-      document.getElementById('nps_score').innerHTML = xmlHttp.response.nps_score;
-      // @todo: transform dial according to nps score (xmlHttp.response.nps_score) 
+      npsScore = xmlHttp.response.nps_score;
+      document.getElementById('nps_score').innerHTML = npsScore;
+      d3.select('#nps_gauge').select('.gauge-rotater').selectAll('path')
+        .attr('fill', getNPSColor(npsScore));
+      
+      // @todo: rotate dial according to npsScore
     }
   };  
 
   xmlHttp.send(JSON.stringify(params)); 
 };
 
-
-//  const drawGauge = function(){
-//    d3.xml(gauge_image).mimeType("image/svg+xml").get(function(error, xml) {
-//      if (error) throw error;
-//        console.log(error);
-//      console.log(xml);
-//      document.body.appendChild(xml.documentElement);
-//    });
-//    colorDial(color);  //Fill with corresponding color
-//  }
-//
-// @TODO: function to get corresponding NPSCOLOR
-// const getNPSColor = function(){};
-//
-// @Todo: this function should fill gauge's color and rotate according to score
-// const transformDial = function(nps_score) {
-//    const svgDial = document.getElementById('nps_gauge');
-//    @Todo: Implement functionality to get color according to score
-//    colorDial(color);
-//    rotateDial();
-// };
-
-// const colorDial = function(color){
-//    const paths = d3.select(document.getElementById("gauge_object").contentDocument).select('.gauge-rotater').selectAll('path');
-//    paths.attr('fill', 'color);
-//  };
-//
-// @TODO: 
-// const rotateDial = function(valueToRotate){};
+const getNPSColor = d3.scaleLinear()
+  .domain([-100, 0, 100])
+  .range(['#D22953', '#F9BE00', '#23D385']);

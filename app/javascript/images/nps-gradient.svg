@@ -1,0 +1,54 @@
+<svg width="621px" height="79px" viewBox="0 0 621 79" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="-1.11022302e-14%" y1="50%" x2="100%" y2="50%" id="linearGradient-1">
+            <stop stop-color="#D22953" offset="0%"></stop>
+            <stop stop-color="#F9BE00" offset="50.20468%"></stop>
+            <stop stop-color="#23D385" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-HD" transform="translate(-81.000000, -608.000000)">
+            <text id="-100" font-family=".AppleSystemUIFont" font-size="15" font-weight="normal" line-spacing="24" letter-spacing="0.5357143" fill="#9DA5AA">
+                <tspan x="80.9141671" y="683">-100</tspan>
+            </text>
+            <text id="-75" font-family=".AppleSystemUIFont" font-size="15" font-weight="normal" line-spacing="24" letter-spacing="0.5357143" fill="#9DA5AA">
+                <tspan x="156.607561" y="683">-75</tspan>
+            </text>
+            <text id="-50" font-family=".AppleSystemUIFont" font-size="15" font-weight="normal" line-spacing="24" letter-spacing="0.5357143" fill="#9DA5AA">
+                <tspan x="227.52138" y="683">-50</tspan>
+            </text>
+            <text id="0" font-family=".AppleSystemUIFont" font-size="15" font-weight="normal" line-spacing="24" letter-spacing="0.5357143" fill="#9DA5AA">
+                <tspan x="388.125209" y="683">0</tspan>
+            </text>
+            <text id="25" font-family=".AppleSystemUIFont" font-size="15" font-weight="normal" line-spacing="24" letter-spacing="0.5357143" fill="#9DA5AA">
+                <tspan x="459.716239" y="683">25</tspan>
+            </text>
+            <text id="50" font-family=".AppleSystemUIFont" font-size="15" font-weight="normal" line-spacing="24" letter-spacing="0.5357143" fill="#9DA5AA">
+                <tspan x="533.459647" y="683">50</tspan>
+            </text>
+            <text id="75" font-family=".AppleSystemUIFont" font-size="15" font-weight="normal" line-spacing="24" letter-spacing="0.5357143" fill="#9DA5AA">
+                <tspan x="606.420829" y="683">75</tspan>
+            </text>
+            <text id="100" font-family=".AppleSystemUIFont" font-size="15" font-weight="normal" line-spacing="24" letter-spacing="0.5357143" fill="#9DA5AA">
+                <tspan x="676.602434" y="683">100</tspan>
+            </text>
+            <g id="lines" transform="translate(96.000000, 642.000000)" fill="#D0D2D3">
+                <rect id="Rectangle-9" x="0" y="0" width="1" height="16"></rect>
+                <rect id="Rectangle-9-Copy" x="76.5422819" y="0" width="1" height="16"></rect>
+                <rect id="Rectangle-9-Copy-2" x="149.097987" y="0" width="1" height="16"></rect>
+                <rect id="Rectangle-9-Copy-3" x="222.451007" y="0" width="1" height="16"></rect>
+                <rect id="Rectangle-9-Copy-4" x="296.601342" y="0" width="1" height="16"></rect>
+                <rect id="Rectangle-9-Copy-5" x="371.548993" y="0" width="1" height="16"></rect>
+                <rect id="Rectangle-9-Copy-6" x="444.902013" y="0" width="1" height="16"></rect>
+                <rect id="Rectangle-9-Copy-7" x="518.255034" y="0" width="1" height="16"></rect>
+                <rect id="Rectangle-9-Copy-8" x="593.202685" y="0" width="1" height="16"></rect>
+            </g>
+            <rect id="NPS-Gradient" fill="url(#linearGradient-1)" x="96" y="608" width="594" height="16" rx="8"></rect>
+            <text id="-25" font-family=".AppleSystemUIFont" font-size="15" font-weight="normal" line-spacing="24" letter-spacing="0.5357143" fill="#9DA5AA">
+                <tspan x="303.652972" y="683">-25</tspan>
+            </text>
+        </g>
+    </g>
+</svg>
