@@ -1,0 +1,211 @@
+%top-column {
+  max-height: 271px;
+  background: #FFFFFF;
+  box-shadow: 0 1px 4px 0 rgba(0,0,0,0.10);
+  padding: 20px;
+  width: 624px;
+  height: 271px;
+}
+
+%rating-buttons{
+  box-shadow: 0 0 3px 0 rgba(0,0,0,0.20);
+  border-radius: 3px;
+  width: 48px;
+  height: 48px;
+  margin-right: 8px;
+  color: white;
+}
+
+%percentages-values{
+  width: 78px;
+  float: left;
+}
+
+#nps_o_matic_area{
+  display: grid;
+  grid-gap: 10px;
+  
+  #rate_area{
+    
+    grid-column: 1 ;
+    grid-row: 1;
+
+    p{
+      font-family: 'SF UI Display';
+      font-weight: 400;
+      font-size: 20px;
+      color: #333E48;
+      letter-spacing: 0;
+      line-height: 28px;
+      margin-bottom: 55px;
+    }
+
+    #rating_form{
+      @extend %top-column;
+      float: left;
+
+      .new_rating{
+        @extend %rating-buttons;
+        cursor: pointer;
+      }
+
+      .new_rating input[type=submit] {
+        background: transparent;
+        border: none;
+        font-size: 18px;
+        color: white;
+        margin: 10px;
+        cursor: pointer;
+      }
+
+      #rating_0_new_rating{
+        background: #81AED7;
+      }
+
+      #rating_1_new_rating{
+        background: #75A7D4;
+      }
+
+      #rating_2_new_rating{
+        background: #689ED0;
+      }
+
+      #rating_3_new_rating{
+        background: #5C96CB;
+      }
+
+      #rating_4_new_rating{
+        background: #4F8EC7;
+      }
+
+      #rating_5_new_rating{
+        background: #4387C4;
+      }
+
+      #rating_6_new_rating{
+        background: #367EC0;
+      }
+
+      #rating_7_new_rating{
+        background: #2976BC;
+      }
+
+      #rating_8_new_rating{
+        background: #1D6EB7;
+      }
+
+      #rating_9_new_rating{
+        background: #1166B4;
+      }
+
+      #rating_10_new_rating{
+        background: #045EB0;
+        
+        input[type=submit] {
+          margin-left: 8px;
+        }
+      }
+    }
+
+    .new_rating{
+      float: left;
+    }  
+
+    .likely_text{
+      font-size: 13px;
+      color: #045EB0;
+      float: left;
+      margin-top: 10px;
+      width: 100%;
+      
+      .unlikely{
+        float: left;
+      }
+
+      .likely{
+        float: right;
+        margin-right: 15px;
+      }
+    }
+  }
+
+  #appreciate_area{
+    grid-column: 2 ;
+    grid-row: 1;
+
+    #nps_values{
+      @extend %top-column;
+      display: grid;
+
+      #rate_tally{
+        font-size: 32px;
+
+        #ratings_value{
+          grid-row: 1;
+          grid-column: 1;
+        }
+        #ratings_percentages{
+          grid-row: 2;
+          grid-column: 1;
+          width: 268px;
+          border-top: 1px solid #D0D2D3;
+          margin-top: 50px;
+          padding-top: 30px;
+
+          #promoters_percentage{
+            @extend %percentages-values;
+            float: left;
+            color: #23D385;
+          }
+
+          #detractors_percentage{
+            @extend %percentages-values;
+            margin-left: 25px;
+            color: #D22953;
+          }
+
+          .rate_tally_label{
+            font-size: 15px;
+          }
+
+          .separator{
+            float: left;
+            color: #999999;
+            margin-left: 20px;
+          }
+        }
+      }
+
+      #nps_area{
+        grid-row: 1/2;
+        grid-column: 2;
+        position: relative;
+        width: 172px;
+
+        .nps_label{
+          font-size: 15px;
+          color: #999999;
+          position: absolute;
+          margin-top: 140px;
+          margin-left: 70px;
+        }
+        #nps_score{
+          position: absolute;
+          margin-top: 65px;
+          text-align: center;
+          font-size: 36px;
+          color: #FFFFFF;
+          z-index: 1;
+          width: 100%;
+        }
+
+        #nps_gauge{
+          position: absolute;
+          left: 0px;
+          top: 0px;
+          z-index: 0;
+        }
+      }
+    }
+  }
+}

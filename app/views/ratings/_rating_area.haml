@@ -1,0 +1,17 @@
+#ratings_value
+  = pluralize Rating.count, 'Rating'
+
+#ratings_percentages
+  #promoters_percentage
+    = number_to_percentage Rating.promoters_percentage, precision: 0
+    .rate_tally_label
+      Promoters
+
+  %span{:class => 'separator'}= "-"
+
+  #detractors_percentage
+    = number_to_percentage Rating.detractors_percentage, precision: 0
+    .rate_tally_label
+      Detractors
+
+  %span{:class => 'separator'}= "="

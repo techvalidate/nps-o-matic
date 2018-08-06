@@ -1,0 +1,14 @@
+@import 'typography';
+
+body {
+  max-width: 1440px;
+  background-color: #F7F8FA;
+  font: 100% $font-stack;
+  margin: 0 auto;
+}
+
+h2.heading{
+  font: 100% $heading-font-stack;
+  color: #6B787F;
+  font-size: 18px;
+}
