@@ -114,8 +114,9 @@
     .likely_text{
       font-size: 13px;
       color: #045EB0;
+      float: left;
       margin-top: 10px;
-      clear: both;
+      width: 100%;
       
       .unlikely{
         float: left;
@@ -154,11 +155,13 @@
           #promoters_percentage{
             @extend %percentages-values;
             float: left;
+            color: #23D385;
           }
 
           #detractors_percentage{
             @extend %percentages-values;
             margin-left: 25px;
+            color: #D22953;
           }
 
           .rate_tally_label{
