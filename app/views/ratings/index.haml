@@ -4,7 +4,7 @@
   #rate_area
     %h2{:class => "heading"} Rate!
 
-    #rating_scores
+    #rating_form
       %p
         How likely would you be to recommend Acme
         %br
@@ -21,15 +21,17 @@
   #appreciate_area
     %h2{:class => "heading"} Appreciate!
 
-    #rate_tally
-      = render :partial => "rating_area"
 
-    #nps_area
-      %p NPS
-      #nps_score
-        = Rating.nps
-      #nps_gauge
-        %object{:id => 'gauge_object', :data => asset_pack_path('images/gauge.svg'), :type => 'image/svg+xml'}
+    #nps_values
+      #rate_tally
+        = render :partial => "rating_area"
+
+      #nps_area
+        %span{:class => 'nps_label'} NPS
+        #nps_score
+          = Rating.nps
+        #nps_gauge
+          %object{:id => 'gauge_object', :data => asset_pack_path('images/gauge.svg'), :type => 'image/svg+xml'}
 
   #nps_color_legend_area
     %h2{:class => "heading"} NPS Color Legend
