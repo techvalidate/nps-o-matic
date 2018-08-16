@@ -9,4 +9,4 @@
 
 // console.log('Hello World from Webpacker');
 
-import Ratings from '../ratings'
+import Ratings from '../ratings';
