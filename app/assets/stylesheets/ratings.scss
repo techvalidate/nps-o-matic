@@ -1,0 +1,228 @@
+/* TODO: move to a variables folder */
+$scaleMarkings: #9DA5AA;
+$standardText: #333E48;
+$standardDarkGrayText: #6B787F;
+$promoterGreen: #23D385;
+$detractorRed: #D22953;
+$ratingButtonWidthHeight: 48px;
+$rateButtonClassSlug: rate-button;
+$numberOfRatingsButtons: 11;
+
+/* TODO: move to a mixins folder */
+@mixin changeAlpha($i, $numberOfRatingsButtons) {
+  background-color: rgba(4, 94, 176, (0.4 + ((0.6 / $numberOfRatingsButtons) * $i)));
+}
+
+
+.nps-interface {
+  padding: 30px 65px;
+  font-size: 20px;
+  color: $standardText;
+
+  // form {display: none;}
+  input[type="submit"] {
+    width: $ratingButtonWidthHeight;
+    height: $ratingButtonWidthHeight;
+  }
+
+  .title {
+    margin-bottom: 35px;
+  }
+
+  .content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    > section {
+      width: 624px;
+      box-sizing: border-box;
+    }
+
+    .section-content {
+      background-color: #fff;
+      padding: 15px 25px;
+      height: 271px;
+      box-sizing: border-box;
+      box-shadow: 0 1px 4px #ccc;
+    }
+
+    .section-heading {
+      color: $standardDarkGrayText;
+      margin-bottom: 10px;
+    }
+  }
+
+
+  /***************************/
+  /********  RATE  ***********/
+  /***************************/
+
+  .would-recommend-text {
+    margin: 15px 0 60px;
+    width: 75%;
+  }
+
+  .rate-button {
+    width: $ratingButtonWidthHeight;
+    height: $ratingButtonWidthHeight;
+    border-radius: 6px;
+    line-height: 15px;
+    background-color: rgba(4, 94, 176, 1);
+    color: #fff;
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  @for $i from 0 through ($numberOfRatingsButtons - 1) {
+    .#{$rateButtonClassSlug}-#{$i} {
+      @include changeAlpha($i, $numberOfRatingsButtons);
+    }
+  }
+
+  .recommend-likeliness {
+    display: flex;
+    justify-content: space-between;
+    color: #045EB0;
+    font-size: 13px;
+    margin: 10px 0;
+  }
+
+
+  /***************************/
+  /*****  APPRECIATE  ********/
+  /***************************/
+
+  .ratings-count {
+    color: $standardDarkGrayText;
+    padding-bottom: 40px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid #D0D2D3;
+  }
+
+  .promoters,
+  .detractors,
+  .arithmetic-sign {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 20px;
+  }
+
+  .promoters {
+    color: $promoterGreen;
+  }
+
+  .detractors {
+    color: $detractorRed;
+  }
+
+  .appreciate {
+    .number {
+      font-size: 32px;
+    }
+
+    .label {
+      font-size: 15px;
+    }
+
+    .section-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .col:last-child {
+        margin-right: 20px;
+      }
+    }
+  }
+
+  .arithmetic-sign {
+    font-size: 2em;
+    color: $standardDarkGrayText;
+  }
+
+  .gauge {
+    position: relative;
+    width: 173px;
+    height: 176px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .gauge-text {
+    color: #fff;
+    font-size: 36px;
+  }
+
+  /* ranges for currently rotated svg:
+    -100 NPS = -191deg; 0 NPS = -54deg; 100 NPS = 77deg */
+  .gauge-dial {
+    width: 88px;
+    height: 88px;
+    overflow: visible;
+    transform: rotate(-54deg);
+  }
+
+  .gauge > div {
+    position: absolute;
+  }
+
+  .gauge-markers {
+    width: 173px;
+    height: 176px;
+    background-image: url(ratings/gauge.svg);
+    background-repeat: no-repeat;
+  }
+
+
+  /***************************/
+  /*****  NPS LEGEND  ********/
+  /***************************/
+
+  .nps-legend-canvas {
+    border-radius: 30px;
+  }
+
+  .scale {
+    font-size: 18px;
+    color: $standardDarkGrayText;
+    width: 624px;
+    margin-top: 45px;
+  }
+
+  .scale-content {
+    width: 594px;
+    margin: 20px auto;
+    font-weight: 100;
+  }
+
+  .scale-ticks,
+  .scale-scores {
+    height: 10px;
+    width: 594px;
+    display: flex;
+    justify-content: space-evenly;
+    color: $scaleMarkings;
+    font-size: 15px;
+  }
+
+  .scale-ticks > div,
+  .scale-scores > div {
+    flex: 1;
+  }
+
+  .scale-ticks > div {
+    border-left: 1px solid $scaleMarkings;
+  }
+
+  .scale-ticks > div:last-child {
+    border-right: 1px solid $scaleMarkings;
+  }
+
+  .scale-scores {
+    text-align: center;
+    width: 672px;
+    margin: 10px 0 0 -38px;
+  }
+}

@@ -1,31 +1,37 @@
-%h1 NPS-o-Matic
+.nps-interface
 
-%p Rate!
+  .title
+    %h1 NPS-o-Matic
 
-%p How likely would you be to recommend Acme Systems to a friend or colleague?
+  .content
+    %section.rate
+      .section-heading Rate!
 
-- 0.upto(10) do |i|
-  = form_for Rating.new(score: i) do |f|
-    = f.hidden_field :score
-    = f.submit i
+      .section-content
+        %p.would-recommend-text How likely would you be to recommend Acme Systems to a friend or colleague?
 
+        .rate-buttons
+          - 0.upto(10) do |i|
+            %div{:class => "rate-button rate-button-#{i}", "data-rating-value" => "#{i}"}
+              = form_for Rating.new(score: i) do |f|
+                = f.hidden_field :score
+                = f.submit i
 
-%p Appreciate!
+        .recommend-likeliness
+          .very-unlikely Very Unlikely
+          .very-likely Very Likely
 
-%p= pluralize Rating.count, 'Rating'
+    = render :partial => "appreciate"
 
+  %section.scale
+    %p NPS Color Legend
+    .scale-content
+      %canvas#nps-legend-canvas.nps-legend-canvas
 
-%p
-  = number_to_percentage Rating.promoters_percentage
-  Promoters
-
-%p
-  = number_to_percentage Rating.detractors_percentage
-  Detractors
-
-%p
-  NPS
-  = Rating.nps
-
-
-%p NPS Color Legend
+      .scale-ticks
+        - 0.upto(7) do |i|
+          %div
+      .scale-scores
+        - [-100, -75, -50, -25, 0, 25, 50, 75, 100].each do |n|
+          %div
+            = n

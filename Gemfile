@@ -21,3 +21,5 @@ group :development do
   gem 'spring-watcher-listen', '2.0.1'
   gem 'web-console', '3.5.1'
 end
+
+gem "responders", "~> 2.4"
