@@ -1,0 +1,42 @@
+%section.appreciate
+  .section-heading Appreciate!
+
+  .section-content
+    .col
+      .ratings-count
+        .number
+          = Rating.count
+        .label Ratings
+        -# = pluralize Rating.count, 'Rating'
+
+      .promoters
+        .number
+          = number_to_percentage Rating.promoters_percentage, :strip_insignificant_zeros => true
+        .label Promoters
+
+      .arithmetic-sign -
+
+      .detractors
+        .number
+          = number_to_percentage Rating.detractors_percentage, :strip_insignificant_zeros => true
+        .label Detractors
+
+      .arithmetic-sign =
+
+    .col
+      .gauge
+        .gauge-dial
+          %svg{:height => "87px", :version => "1.1", :viewbox => "0 0 101 87", :width => "101px", :xmlns => "http://www.w3.org/2000/svg", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+            / Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch
+            %desc Created with Sketch.
+            %defs
+            %g#Page-1{:fill => "none", "fill-rule" => "evenodd", :stroke => "none", "stroke-width" => "1"}
+              %g#Desktop-HD.gauge-dial-fill{:fill => "#93C83F", :transform => "translate(-1164.000000, -303.000000)"}
+                %g#gauge{:transform => "translate(1121.000000, 261.000000)"}
+                  %path#Oval-3{:d => "M86.5,129 C110.524387,129 130,109.524387 130,85.5 C130,61.4756134 110.524387,42 86.5,42 C62.4756134,42 43,61.4756134 43,85.5 C43,109.524387 62.4756134,129 86.5,129 Z"}
+                  %path#caret-copy-2{:d => "M129.489817,42.9847758 C129.975373,41.9932976 130.765348,41.9988802 131.248169,42.9847758 L145.524072,72.1353988 C146.009628,73.1268771 145.512083,73.930629 144.397219,73.930629 L116.340767,73.930629 C115.232868,73.930629 114.731093,73.1212944 115.213914,72.1353988 L129.489817,42.9847758 Z", :transform => "translate(130.370094, 58.086944) scale(-1, 1) rotate(-56.000000) translate(-130.370094, -58.086944) "}
+
+        .gauge-markers
+        .gauge-text
+          = Rating.nps
+        %input{:id => "gauge-initial-score", :type => "hidden", :value => "#{Rating.nps}"}
