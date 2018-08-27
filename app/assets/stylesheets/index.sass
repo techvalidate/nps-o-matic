@@ -1,0 +1,44 @@
+body
+  background: $body_background
+  color: $body_font_color
+  font-family: $font-stack
+
+h1
+  font-family: $heading-font-stack
+  font-size: 4rem
+
+.row
+  width: 100%
+  margin-left: auto
+  margin-right: auto
+  margin-top: 0
+  margin-bottom: 0
+  &:after
+    clear: both
+    content: " "
+  &:before
+    content: " "
+
+
+.card-column
+  position: relative
+  float: left
+  +large-screen
+    width: 50%
+
+.card-title
+  color: $card_title
+
+.card
+  border-radius: 3px
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,.25)
+  background-color: white
+  padding: 1rem
+
+.scale
+  +calculation-gradient
+  border-radius: 13px
+  margin: .5rem
+
+.rating
+  color: $dark_blue

@@ -1,31 +1,44 @@
 %h1= t('.title')
 
-%p= t('.rate')
+.row
+  .card-column
+    %p.card-title= t('.rate')
 
-%p= t('.how_likely')
+    .card
+      %p= t('.how_likely')
+      .row
+        - 0.upto(10) do |i|
+          = form_for Rating.new(score: i) do |f|
+            = f.hidden_field :score
+            = f.submit i
+      .rating
+        %span.left
+          Very Unlikely
+        %span.right
+          Very Likely
 
-- 0.upto(10) do |i|
-  = form_for Rating.new(score: i) do |f|
-    = f.hidden_field :score
-    = f.submit i
+  .card-column
+    %p.card-title= t('.appreciate')
 
-
-%p= t('.appreciate')
-
-%p= pluralize Rating.count, 'Rating'
-
-
-%p
-  = number_to_percentage Rating.promoters_percentage
-  =t('.promoters')
-
-%p
-  = number_to_percentage Rating.detractors_percentage
-  =t('.detractors')
-
-%p
-  =t('.nps')
-  = Rating.nps
+    .card
+      %p= pluralize Rating.count, 'Rating'
 
 
-%p= t('.color_legend')
+      %p
+        = number_to_percentage Rating.promoters_percentage
+        =t('.promoters')
+
+      %p
+        = number_to_percentage Rating.detractors_percentage
+        =t('.detractors')
+
+      %p
+        =t('.nps')
+        = Rating.nps
+.row
+  %p= t('.color_legend')
+
+  .scale
+    &nbsp;
+
+= image_tag ('nps-o-matic.png')
