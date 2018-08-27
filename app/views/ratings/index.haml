@@ -1,8 +1,8 @@
-%h1 NPS-o-Matic
+%h1= t('.title')
 
-%p Rate!
+%p= t('.rate')
 
-%p How likely would you be to recommend Acme Systems to a friend or colleague?
+%p= t('.how_likely')
 
 - 0.upto(10) do |i|
   = form_for Rating.new(score: i) do |f|
@@ -10,22 +10,22 @@
     = f.submit i
 
 
-%p Appreciate!
+%p= t('.appreciate')
 
 %p= pluralize Rating.count, 'Rating'
 
 
 %p
   = number_to_percentage Rating.promoters_percentage
-  Promoters
+  =t('.promoters')
 
 %p
   = number_to_percentage Rating.detractors_percentage
-  Detractors
+  =t('.detractors')
 
 %p
-  NPS
+  =t('.nps')
   = Rating.nps
 
 
-%p NPS Color Legend
+%p= t('.color_legend')
