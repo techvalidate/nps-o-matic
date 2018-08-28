@@ -7,38 +7,88 @@ h1
   font-family: $heading-font-stack
   font-size: 4rem
 
+
 .row
   width: 100%
   margin-left: auto
   margin-right: auto
   margin-top: 0
   margin-bottom: 0
+  display: flex
   &:after
     clear: both
-    content: " "
-  &:before
-    content: " "
 
-
-.card-column
+.column
   position: relative
   float: left
+
+.nps-container
+  width: 100%
+  margin-right: auto
+  margin-left: auto
   +large-screen
-    width: 50%
+    max-width: 70rem
 
-.card-title
-  color: $card_title
+  .card-column
+    padding: 1rem
+    +large-screen
+      width: 50%
 
-.card
-  border-radius: 3px
-  box-shadow: 0 1px 2px 0 rgba(0,0,0,.25)
-  background-color: white
-  padding: 1rem
+  .card-title
+    color: $card_title
 
-.scale
-  +calculation-gradient
-  border-radius: 13px
-  margin: .5rem
+  .card 
+    border-radius: 3px
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.25)
+    background-color: white
+    padding: 1rem
 
-.rating
-  color: $dark_blue
+  .rating-row
+    display: -webkit-box
+    display: -moz-box
+    display: -ms-flexbox
+    display: -webkit-flex
+    display: flex
+    flex-direction: row
+    flex-wrap: nowrap
+    justify-content: space-around
+    form
+      flex: 1 1 auto
+
+  @for $i from 0 through 10
+    .new-rating-#{ $i }
+      +button-color($i)
+
+
+  .new-rating 
+    border-radius: 3px
+    width: 100%
+    position: relative
+    text-align: center
+    padding: 2% 0
+    margin: .125rem
+    input[type=submit]
+      background: none
+      border: none
+      color: white
+      font-weight: bold
+
+  .scale
+    +calculation-gradient
+    width: 100%
+    border-radius: 13px
+    margin: .5rem
+
+  .rating
+    color: $dark_blue
+    width: 100%
+    position: relative
+
+  .left
+    float: left
+
+  .right
+    float: right
+
+  .bold
+    font-weight: bold

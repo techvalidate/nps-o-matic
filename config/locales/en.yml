@@ -3,12 +3,18 @@ en:
     application: 
       title: NPS-o-Matic
   ratings:
-    index:
+    appreciate:
       appreciate: Appreciate!
-      color_legend: NPS Color Legend
       detractors: Detractors
-      how_likely: How likely would you be to recommend Acme Systems to a friend or colleague?
+      rating: Rating
       nps: NPS
       promoters: Promoters
-      rate: Rate!
+    color_legend:
+      color_legend: NPS Color Legend
+    index:
       title: NPS-o-Matic
+    rating_scale:
+      how_likely: How likely would you be to recommend Acme Systems to a friend or colleague?
+      rate: Rate!
+      very_likely: Very Likely
+      very_unlikely: Very Unlikely

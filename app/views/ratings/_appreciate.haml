@@ -1,0 +1,23 @@
+.card-column.column
+  %p.card-title= t('.appreciate')
+
+  .card
+    .row
+      .column
+        %p= pluralize Rating.count, t('.rating')
+
+        %br
+        .row
+          .column
+            = number_to_percentage Rating.promoters_percentage
+            =t('.promoters')
+          .column
+            -
+          .column
+            = number_to_percentage Rating.detractors_percentage
+            =t('.detractors')
+          .column
+            = '='
+      .column
+        =t('.nps')
+        = Rating.nps

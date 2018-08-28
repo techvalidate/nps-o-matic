@@ -1,0 +1,17 @@
+.card-column.column
+  %p.card-title= t('.rate')
+
+  .card
+    %p= t('.how_likely')
+    .row.rating-row
+      - 0.upto(10) do |i|
+        = form_for Rating.new(score: i), html: { class: "new-rating new-rating-#{ i }" } do |f|
+          = f.hidden_field :score
+          = f.submit i
+    %br
+    .row
+      .rating.column
+        %span.left.bold
+          = t('.very_unlikely')
+        %span.right.bold
+          = t('.very_likely')
