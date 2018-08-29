@@ -23,10 +23,12 @@
             = t('.detractors')
         .column.symbol =
     .column.card-column.center
-      .dial
-        = inline_svg('dial.svg', { class: "total-score-#{ find_nearest(Rating.nps) } rotation-#{ Rating.nps }"})
-      .total-rating
-        = Rating.nps
-      .word
-        =t('.nps')
+      .row.dial-group
+        .dial
+          = inline_svg('dial.svg', { class: "total-score-#{ find_nearest(Rating.nps) } rotation-#{ Rating.nps }"})
+        .total-rating
+          = Rating.nps
+      .row.center
+        .word
+          = t('.nps')
 

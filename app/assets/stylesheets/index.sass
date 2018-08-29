@@ -108,7 +108,8 @@ h1
     .number
       font-size: 2rem
     .word
-      font-size: .75rem
+      font-size: 1rem
+      width: 100%
     .symbol
       color: $card_title
       padding: 1rem
@@ -118,17 +119,12 @@ h1
       font-size: 2rem
       top: 90px
       right: 100px
-    .dial
-      position: absolute
-      top: 25%
-      right: 25%
-    .tick
-      border-left: 1px solid $card_title
-      height: .5rem
-      width: .1rem
-      @for $i from 0 through 25
-        &:nth-of-type(#{$i})
-          transform: translate(10rem) rotate((($i - 25) * 5) * 1deg)
+    .dial-group
+      height: 100%
+      .dial
+        position: absolute
+        top: 25%
+        right: 25%
   .legend-and-ticks
     padding: 0 1rem
   .legend-scale

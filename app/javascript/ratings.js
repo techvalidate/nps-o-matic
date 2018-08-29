@@ -1,24 +1,23 @@
-document.addEventListener("DOMContentLoaded",function(){
-  var allRatings = document.getElementsByClassName('new-rating');
+document.addEventListener('DOMContentLoaded', () => {
+  const allRatings = document.getElementsByClassName('new-rating');
 
-  for (let i = 0; i < allRatings.length; i++){
-    allRatings[i].addEventListener("click", (e) => {
+  Array.from(allRatings).forEach((ratingItem) => {
+    ratingItem.addEventListener('click', (e) => {
       e.preventDefault();
-      sendRating(allRatings[i]);
+      sendRating(ratingItem);
     });
-  }
+  });
 
-  function sendRating(rating_form) {
+  sendRating = (ratingForm) => {
     ratingOptions =  {
-      body: new FormData(rating_form),
+      body: new FormData(ratingForm),
       method: 'POST'
-    }
+    };
 
-    fetch('/ratings', ratingOptions).then(function(response) {
-        return response.text();
-      }).then(function(data){
-        document.getElementById('appreciate').innerHTML = data;
-    })
+    fetch('/ratings', ratingOptions).then((response) => {
+      response.text();
+    }).then((data) => {
+      document.getElementById('appreciate').innerHTML = data;
+    });
   };
-
 });
