@@ -1,33 +1,38 @@
+- count = Rating.count
+- promoters_percentage = Rating.promoters_percentage
+- detractors_percentage = Rating.detractors_percentage
+- nps = Rating.nps
+
 %p.card-title= t('.appreciate')
 
 .card
   .row
     .column.card-column
       .number
-        = Rating.count
+        = count
       .word
-        = t('.rating').pluralize Rating.count
+        = t('.rating').pluralize count
 
       %hr
       .row
-        .column#promoters{ class: "score-#{ find_nearest(Rating.promoters_percentage) }"}
+        .column#promoters{ class: "score-#{ find_nearest(promoters_percentage) }"}
           .number
-            = number_to_percentage(Rating.promoters_percentage, precision: 0)
+            = number_to_percentage(promoters_percentage, precision: 0)
           .word
             = t('.promoters')
         .column.symbol -
-        .column#detractors{ class: "score-#{ find_nearest(Rating.detractors_percentage * -1) }"}
+        .column#detractors{ class: "score-#{ find_nearest(detractors_percentage * -1) }"}
           .number
-            = number_to_percentage(Rating.detractors_percentage, precision: 0)
+            = number_to_percentage(detractors_percentage, precision: 0)
           .word
             = t('.detractors')
         .column.symbol =
     .column.card-column.center
       .row.dial-group
         .dial
-          = inline_svg('dial.svg', { class: "total-score-#{ find_nearest(Rating.nps) } rotation-#{ Rating.nps }"})
+          = inline_svg('dial.svg', { class: "total-score-#{ find_nearest(nps) } rotation-#{ nps }"})
         .total-rating
-          = Rating.nps
+          = nps
       .row.center
         .word
           = t('.nps')
