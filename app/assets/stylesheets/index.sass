@@ -28,7 +28,7 @@ h1
   margin-right: auto
   margin-left: auto
   +large-screen
-    max-width: 70rem
+    max-width: 80rem
 
   .card-column
     padding: 1rem
@@ -36,7 +36,7 @@ h1
       width: 50%
 
   .card-title
-    color: $card_title
+    color: $gray
 
   .card 
     border-radius: 3px
@@ -111,30 +111,30 @@ h1
       font-size: 1rem
       width: 100%
     .symbol
-      color: $card_title
+      color: $gray
       padding: 1rem
+      font-size: 1.5rem
     .total-rating
       color: white
-      position: absolute
       font-size: 2rem
-      top: 90px
-      right: 100px
+      margin: auto
+      z-index: 0
     .dial-group
       height: 100%
       .dial
         position: absolute
         top: 25%
         right: 25%
-  .legend-and-ticks
-    padding: 0 1rem
-  .legend-scale
-    width: 100%
-    display: flex
-    justify-content: space-between
-    padding-top: .5rem
-    .scale-marking
-      padding-top: .75rem
-      border-left: 1px solid $card_title
+    .legend-and-ticks
+      padding: 0 1rem
+    .legend-scale
+      width: 100%
+      display: flex
+      justify-content: space-between
+      padding-top: .5rem
+      .scale-marking
+        padding-top: .75rem
+        border-left: 1px solid $gray
 
 .left
   float: left
@@ -151,5 +151,5 @@ h1
 .margin-below
 
 hr
-  border-top: $card_title
+  border-top: $gray
   margin: 2rem 0
