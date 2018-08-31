@@ -6,28 +6,29 @@
 %p.card-title= t('.appreciate')
 
 .card
-  .row
-    .column.card-column
+  .row.with-padding
+    .column
       .number
         = count
       .word
         = t('.rating').pluralize count
 
       %hr
-      .row
+      .row.rating-row
         .column#promoters{ class: "score-#{ find_nearest(promoters_percentage) }"}
           .number
             = number_to_percentage(promoters_percentage, precision: 0)
           .word
             = t('.promoters')
-        .column.symbol -
+        .column.with-padding.symbol -
         .column#detractors{ class: "score-#{ find_nearest(detractors_percentage * -1) }"}
           .number
             = number_to_percentage(detractors_percentage, precision: 0)
           .word
             = t('.detractors')
-        .column.symbol =
-    .column.card-column.center
+        .column.with-padding.symbol =
+    
+    .column
       .row.dial-group
         .dial
           = inline_svg('dial.svg', { class: "total-score-#{ find_nearest(nps) } rotation-#{ nps }"})
@@ -36,4 +37,3 @@
       .row.center
         .word
           = t('.nps')
-

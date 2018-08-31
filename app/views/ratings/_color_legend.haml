@@ -1,20 +1,16 @@
-.card-column.column.legend
+.row
+  .column
+    %p= t('.color_legend')
+.legend-and-ticks
   .row
-    .column
-      %p= t('.color_legend')
-  .legend-and-ticks
-    .row
-      .scale
-        &nbsp;
+    .scale
+      &nbsp;
 
-    .row
-      .legend-scale
-        - (0..8).each do
-          .scale-marking
   .row
     .legend-scale
-      - (0..8).each do |placement|
-        .div= (placement - 4) * 25
-.card-column.column
-  &nbsp;
-
+      - (0..8).each do
+        .scale-marking
+.row
+  .legend-scale
+    - (0..8).each do |placement|
+      .div= (placement - 4) * 25

@@ -1,14 +1,13 @@
 .row
-  .nps-container
+  .nps-container.column
     .row
-      .card-column.column
+      .column
         %h1= t('.title')
 
     .row
-      .card-column.column
+      .column
         = render 'rating_scale'
-      .card-column.column#appreciate
+      .column#appreciate
         = render 'appreciate'
-
-    .row
-      = render 'color_legend'
+      .column
+        = render 'color_legend'

@@ -8,32 +8,32 @@ h1
   font-size: 4rem
   color: $title_color
 
+%flex-row
+    display: -webkit-box
+    display: -moz-box
+    display: -ms-flexbox
+    display: -webkit-flex
+    display: flex
 
 .row
-  width: 100%
-  margin-left: auto
-  margin-right: auto
-  margin-top: 0
-  margin-bottom: 0
-  display: flex
-  &:after
-    clear: both
-
-.column
-  position: relative
-  float: left
+  @extend %flex-row
+  flex-wrap: wrap
+  justify-content: space-between
 
 .nps-container
   width: 100%
   margin-right: auto
   margin-left: auto
   +large-screen
-    max-width: 80rem
+    max-width: 85rem
 
-  .card-column
-    padding: 1rem
+  .column
+    width: 100%
     +large-screen
-      width: 50%
+      width: 49%
+
+  .with-padding
+    padding: 1rem
 
   .card-title
     color: $gray
@@ -42,19 +42,9 @@ h1
     border-radius: 3px
     box-shadow: 0 1px 2px 0 rgba(0,0,0,.25)
     background-color: white
-    padding: 1rem
-    &:after
-      clear: both
-
-  .legend
-    padding: 1rem
 
   .rating-row
-    display: -webkit-box
-    display: -moz-box
-    display: -ms-flexbox
-    display: -webkit-flex
-    display: flex
+    @extend %flex-row
     flex-direction: row
     flex-wrap: nowrap
     justify-content: space-around
@@ -84,7 +74,6 @@ h1
   .new-rating 
     border-radius: 3px
     width: 100%
-    position: relative
     text-align: center
     padding: 2% 0
     margin: .125rem
@@ -101,8 +90,7 @@ h1
 
   .rating
     color: $dark_blue
-    width: 100%
-    position: relative
+    justify-content: space-between
 
   #appreciate
     .number
@@ -112,19 +100,18 @@ h1
       width: 100%
     .symbol
       color: $gray
-      padding: 1rem
       font-size: 1.5rem
     .total-rating
-      color: white
+      color: brown //white
       font-size: 2rem
       margin: auto
       z-index: 0
     .dial-group
       height: 100%
       .dial
-        position: absolute
-        top: 25%
-        right: 25%
+        margin: auto
+  
+
   .legend-and-ticks
     padding: 0 1rem
   .legend-scale
@@ -147,8 +134,6 @@ h1
 
 .center
   text-align: center
-
-.margin-below
 
 hr
   border-top: $gray
