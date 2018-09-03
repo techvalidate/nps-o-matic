@@ -7,7 +7,7 @@
 
 .card
   .row.with-padding
-    .column
+    .half-column
       .number
         = count
       .word
@@ -15,25 +15,28 @@
 
       %hr
       .row.rating-row
-        .column#promoters{ class: "score-#{ find_nearest(promoters_percentage) }"}
+        #promoters{ class: "score-#{ find_nearest(promoters_percentage) }"}
           .number
             = number_to_percentage(promoters_percentage, precision: 0)
           .word
             = t('.promoters')
-        .column.with-padding.center.symbol -
-        .column#detractors{ class: "score-#{ find_nearest(detractors_percentage * -1) }"}
+        .with-padding.center.symbol -
+        #detractors{ class: "score-#{ find_nearest(detractors_percentage * -1) }"}
           .number
             = number_to_percentage(detractors_percentage, precision: 0)
           .word
             = t('.detractors')
-        .column.with-padding.center.symbol =
+        .with-padding.center.symbol =
     
-    .column
+    .half-column
       .row.dial-group
         .dial
-          = inline_svg('dial.svg', { class: "total-score-#{ find_nearest(nps) } rotation-#{ nps }"})
+          .dial.ticks
+            = inline_svg('ticks.svg', { class: "dial-tick" })
+          .dial
+            = inline_svg('dial.svg', { class: "total-score-#{ find_nearest(nps) } rotation-#{ nps }"})
         .total-rating
           = nps
       .row.center
-        .word
+        .word.nps
           = t('.nps')
