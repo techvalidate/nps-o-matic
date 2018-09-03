@@ -1,7 +1,8 @@
-- count = Rating.count
-- promoters_percentage = Rating.promoters_percentage
-- detractors_percentage = Rating.detractors_percentage
-- nps = Rating.nps
+:ruby
+  count = Rating.count
+  promoters_percentage = Rating.promoters_percentage
+  detractors_percentage = Rating.detractors_percentage
+  nps = Rating.nps
 
 %p.card-title= t('.appreciate')
 
@@ -27,7 +28,6 @@
           .word
             = t('.detractors')
         .with-padding.center.symbol =
-    
     .half-column
       .row.dial-group
         .dial
