@@ -103,14 +103,18 @@ h1
       color: $gray
       font-size: 1.5rem
     .total-rating
-      color: brown //white
+      color: white
       font-size: 2rem
       margin: auto
       z-index: 0
     .dial-group
       height: 100%
+      position: relative
       .dial
-        margin: auto
+        position: absolute
+        left: 50%
+        top: 50%
+        transform: translate(-50%, -50%)
   
 
   .legend-and-ticks
