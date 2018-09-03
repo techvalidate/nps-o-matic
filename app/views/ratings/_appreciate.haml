@@ -31,10 +31,9 @@
     .half-column
       .row.dial-group
         .dial
-          .dial.ticks
-            = inline_svg('ticks.svg', { class: "dial-tick" })
-          .dial
-            = inline_svg('dial.svg', { class: "total-score-#{ find_nearest(nps) } rotation-#{ nps }"})
+          = inline_svg('ticks.svg', { class: "dial-tick" })
+        .dial
+          = inline_svg('dial.svg', { class: "total-score-#{ find_nearest(nps) } rotation-#{ nps }"})
         .total-rating
           = nps
       .row.center
