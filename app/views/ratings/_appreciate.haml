@@ -1,0 +1,41 @@
+:ruby
+  count = Rating.count
+  promoters_percentage = Rating.promoters_percentage
+  detractors_percentage = Rating.detractors_percentage
+  nps = Rating.nps
+
+%p.card-title= t('.appreciate')
+
+.card
+  .row.with-padding
+    .half-column
+      .number
+        = count
+      .word
+        = t('.rating').pluralize count
+
+      %hr
+      .row.rating-row
+        #promoters{ class: "score-#{ find_nearest(promoters_percentage) }"}
+          .number
+            = number_to_percentage(promoters_percentage, precision: 0)
+          .word
+            = t('.promoters')
+        .with-padding.center.symbol -
+        #detractors{ class: "score-#{ find_nearest(detractors_percentage * -1) }"}
+          .number
+            = number_to_percentage(detractors_percentage, precision: 0)
+          .word
+            = t('.detractors')
+        .with-padding.center.symbol =
+    .half-column
+      .row.dial-group
+        .dial
+          = inline_svg('ticks.svg', { class: "dial-tick" })
+        .dial
+          = inline_svg('dial.svg', { class: "total-score-#{ find_nearest(nps) } rotation-#{ nps }"})
+        .total-rating
+          = nps
+      .row.center
+        .word.nps
+          = t('.nps')

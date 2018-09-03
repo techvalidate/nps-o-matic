@@ -1,0 +1,16 @@
+.row
+  .column
+    %p= t('.color_legend')
+.legend-and-ticks
+  .row
+    .scale
+      &nbsp;
+
+  .row
+    .legend-scale
+      - (0..8).each do
+        .scale-marking
+.row
+  .legend-scale
+    - (0..8).each do |placement|
+      .scale-number= (placement - 4) * 25

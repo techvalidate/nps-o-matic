@@ -1,0 +1,161 @@
+body
+  background: $body_background
+  color: $body_font_color
+  font-family: $font-stack
+
+h1
+  font-family: $heading-font-stack
+  font-size: 4rem
+  color: $title_color
+
+%flex-row
+    display: -webkit-box
+    display: -moz-box
+    display: -ms-flexbox
+    display: -webkit-flex
+    display: flex
+
+.row
+  @extend %flex-row
+  flex-wrap: wrap
+  justify-content: space-between
+  align-items: stretch
+
+.nps-container
+  width: 100%
+  margin-right: auto
+  margin-left: auto
+  +large-screen
+    max-width: 85rem
+
+  .column
+    width: 100%
+    padding: 1rem 0
+    +large-screen
+      width: 49%
+
+  .half-column
+    width: 49%
+
+  .with-padding
+    padding: 1rem
+
+  .card-title
+    color: $gray
+
+  .card 
+    border-radius: 3px
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.25)
+    background-color: white
+    +large-screen
+      height: 15rem
+
+  .rating-row
+    @extend %flex-row
+    flex-direction: row
+    flex-wrap: nowrap
+    justify-content: space-around
+    form
+      flex: 1 1 auto
+
+  .how-likely
+    width: 80%
+    padding: 2rem 0
+    font-size: 1.125rem
+
+  @for $i from 0 through 10
+    .new-rating-#{ $i }
+      +button-color($i)
+  @for $i from -100 through 100
+    .rotation-#{ $i }
+      transform: rotate(($i * 1.2) * 1deg)
+
+  $scale_list: (0: $scale_0, 12: $scale_12, 25: $scale_25, 37: $scale_37, 50: $scale_50, 62: $scale_62, 75: $scale_75, 87: $scale_87, 100: $scale_100)
+
+  @each $scale_stop, $color in $scale_list
+    .total-score-#{ $scale_stop }
+      fill: $color
+    .score-#{ $scale_stop }
+      color: $color
+
+  .new-rating 
+    border-radius: 3px
+    width: 100%
+    text-align: center
+    padding: 2% 0
+    margin: .125rem
+    input[type=submit]
+      background: none
+      border: none
+      color: white
+      font-weight: bold
+
+  .scale
+    +calculation-gradient
+    width: 100%
+    border-radius: 13px
+
+  .rating
+    color: $dark_blue
+    justify-content: space-between
+
+  #appreciate
+    .number
+      font-size: 2rem
+    .word
+      font-size: 1rem
+      width: 100%
+    .symbol
+      color: $gray
+      font-size: 1.5rem
+    .total-rating
+      color: white
+      font-size: 2rem
+      margin: auto
+      z-index: 0
+    .dial-group
+      height: 100%
+      position: relative
+      .dial
+        position: absolute
+        left: 50%
+        top: 50%
+        transform: translate(-50%, -50%)
+    .nps
+      margin-top: -3rem
+      z-index: 2
+  .dial-tick
+    stroke: $gray
+    stroke-dasharray: 2 6 2 6 2 6 2 6 2 6 2 134 2 6 2 6 2 6 2 6 2 6 2 6 2 6 2 6 2 6 2 6 2 6 2 6 2 6 2 6 2 6 2 6 2 6 2 6 2 6 2 6 2 6 2 6 2 6 2 6 2 6 2 6 2 6 2 6 2 6 2 6 2 6 2 6 2 6
+    fill: white
+    stroke-width: 8%
+
+  .legend-and-ticks
+    padding: 0 1rem
+  .legend-scale
+    width: 100%
+    display: flex
+    justify-content: space-between
+    padding-top: .5rem
+    .scale-marking
+      padding-top: .75rem
+      border-left: 1px solid $gray
+    .scale-number
+      display: inline-block
+      min-width: 1.5rem
+
+.left
+  float: left
+
+.right
+  float: right
+
+.bold
+  font-weight: bold
+
+.center
+  text-align: center
+
+hr
+  border-top: $gray
+  margin: 2rem 0
