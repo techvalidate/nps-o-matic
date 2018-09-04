@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     fetch('/ratings', ratingOptions).then((response) => {
-      response.text();
+      return response.text();
     }).then((data) => {
       document.getElementById('appreciate').innerHTML = data;
     });
