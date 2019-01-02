@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'haml', '5.0.1'
 gem 'puma', '3.11.0'
-gem 'rails', '5.1.4'
+gem 'rails', '~> 5.1.6'
 gem 'sass-rails', '5.0.7'
 gem 'sqlite3', '1.3.13'
 gem 'uglifier', '4.0.1'
